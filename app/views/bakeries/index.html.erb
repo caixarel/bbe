@@ -1,0 +1,53 @@
+<div id="index-container" >
+
+  <!-- Below is the div that just is a 2 column grid for all pets on left and
+  the map on the right-->
+  <div class="parent d-flex">
+
+    <!-- Below is the left column which contains all the pets -->
+    <div class="bakery-cards col-6">
+      <%unless @bakeries.empty? %>
+      <% @bakeries.each do |bakery| %>
+        <div class="bakery-card fit shadow p-3 mb-2 bg-white rounded" data-lat=<%=bakery.latitude %> data-lng=<%=bakery.longitude %>>
+          <% if bakery.photo.attached? %>
+            <%= cl_image_tag bakery.photo.key, height: 200, width: 200, crop: :fill %>
+          <% end %>
+
+          <div class="bakery-card-infos">
+
+            <div id="name">
+            <h1><%= link_to bakery.name.upcase,bakery_path(bakery) %></h1>
+          </div>
+          <div id="address">
+              <%= bakery.address.capitalize %>, <%= bakery.post_code %>
+            </div>
+          <div class="description">
+            <p><%= bakery.description.capitalize %> <% if bakery.description.length > 20%><%= link_to "...", bakery_path(bakery) %><%end%></p>
+        </div>
+        <div class="opening_sch">
+            <p><%=bakery.opening_hour.strftime"%H:%M"%> - <%=bakery.closing_hour.strftime"%H:%M"%> </p>
+        </div>
+        <div class="phone">
+            <p><%=bakery.phone_number%> </p>
+        </div>
+           </div>
+
+
+        </div>
+      <% end %>
+      <%else %>
+        <h1>No bakeries found!</h1>
+      <%end %>
+    </div>
+
+
+    <!-- Below is the right column with the map -->
+
+    <div class="map_card col-6" id="map"
+        style=" height: 600px;"
+        data-markers="<%= @markers.to_json %>"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+
+  </div>
+</div>
