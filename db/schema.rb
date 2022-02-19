@@ -10,10 +10,72 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_17_193344) do
+ActiveRecord::Schema.define(version: 2022_02_19_105357) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bakeries", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.text "description"
+    t.time "opening_hour"
+    t.time "closing_hour"
+    t.string "phone_number"
+    t.integer "post_code"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_bakeries_on_user_id"
+  end
+
+  create_table "favourites", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "bakery_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["bakery_id"], name: "index_favourites_on_bakery_id"
+    t.index ["user_id"], name: "index_favourites_on_user_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.text "content"
+    t.integer "rating"
+    t.string "title"
+    t.boolean "visitor"
+    t.bigint "user_id", null: false
+    t.bigint "bakery_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["bakery_id"], name: "index_reviews_on_bakery_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+
+  create_table "specialities", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.bigint "bakery_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["bakery_id"], name: "index_specialities_on_bakery_id"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "category"
+    t.bigint "bakery_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["bakery_id"], name: "index_tags_on_bakery_id"
+  end
+
+  create_table "user_tags", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "tag_id", null: false
+    t.index ["tag_id"], name: "index_user_tags_on_tag_id"
+    t.index ["user_id"], name: "index_user_tags_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -27,4 +89,13 @@ ActiveRecord::Schema.define(version: 2022_02_17_193344) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "bakeries", "users"
+  add_foreign_key "favourites", "bakeries"
+  add_foreign_key "favourites", "users"
+  add_foreign_key "reviews", "bakeries"
+  add_foreign_key "reviews", "users"
+  add_foreign_key "specialities", "bakeries"
+  add_foreign_key "tags", "bakeries"
+  add_foreign_key "user_tags", "tags"
+  add_foreign_key "user_tags", "users"
 end
