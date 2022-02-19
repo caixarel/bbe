@@ -7,6 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 
+
+User.destroy_all
+Bakery.destroy_all
 addresses = ['Rue Leval 234','Prinsenstraat 61','Stationsstraat 343','Place Fayat 282','Chaussée de Tirlemont 265','Rue de la Poste 313','Huis van de Hertogen van Brabant','Grote Markt','Musée de la Ville de Bruxelles','Grote Markt 29','Grote Markt 10','Heuvelstraat 24','Grote Markt','Jordaenskaai','Steenplein 1','Ernest Van Dijckkaai 9','Steenplein','Willem Ogierplaats 2','Gildekamersstraat 2','Kaasstraat 17']
 post_codes = [5300,3560,8691,3730,8978,6792,1000,1000,1000,1000,1000,1000,1000,2000,2000,2000,2000,2000,2000,2000]
 
