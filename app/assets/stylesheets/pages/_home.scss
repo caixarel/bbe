@@ -110,3 +110,19 @@ body {
   color: black;
   opacity: 0.5;
 }
+
+
+
+
+
+
+
+
+// some code to align the body container w the navbar and the footer
+
+.page-container {
+  display: flex;
+  flex-direction: column;
+
+  min-height: 100vh;
+}
