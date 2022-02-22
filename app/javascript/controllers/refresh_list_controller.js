@@ -1,0 +1,21 @@
+import { Controller } from "stimulus"
+
+export default class extends Controller {
+  static targets = ["form", "searchInput"]
+
+  update() {
+    const url = `${this.formTarget.action}?query=${this.searchInputTarget.value}`
+    fetch(url, { headers: { 'Accept': 'text/plain' } })
+      .then(response => response.text())
+      .then((data) => {
+        //this.listTarget.outerHTML = data;
+        console.log(data)
+
+      })
+  }
+  connect() {
+    console.log(this.element);
+    console.log(this.formTarget);
+    console.log(this.searchInputTarget);
+  }
+}
