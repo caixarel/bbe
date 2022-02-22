@@ -1,0 +1,13 @@
+<h2>Add a new bakery</h2>
+
+<%= simple_form_for @bakery do |f| %>
+  <%= f.input :name, input_html:{class:"input-bakery-name"} %>
+  <%= f.input :phone_number%>
+  <%= f.input :address%>
+  <%= f.input :description%>
+  <%= f.input :post_code%>
+  <%= f.input :opening_hour%>
+  <%= f.input :closing_hour%>
+  <%= f.input :pictures, as: :file %>
+  <%= f.submit "Create a bakery", class: "style-btn-form" %>
+<% end %>
