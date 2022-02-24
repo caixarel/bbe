@@ -1,0 +1,32 @@
+.form-login {
+  padding: 20px;
+  margin-top: 50px;
+  h2  {
+    margin-bottom: 50px;
+    text-align: center
+  }
+  .btn{
+    width: 100%;
+    margin-bottom: 20px;
+    border: 1px solid black
+  }
+  a:link {
+  color: lightslategray;
+  background-color: transparent;
+  text-decoration: none;
+  opacity: 0.75
+}
+}
+
+.form-control {
+  border-radius: 15px;
+  opacity: 0.75
+}
+
+.form-group {
+    margin-bottom: 50px
+}
+
+.form-check {
+  margin-top: -40px
+}
