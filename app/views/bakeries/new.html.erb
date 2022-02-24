@@ -1,13 +1,28 @@
-<h2>Add a new bakery</h2>
+<h2 class="form-title justify-content-center">Add a new bakery</h2>
 
-<%= simple_form_for @bakery do |f| %>
-  <%= f.input :name, input_html:{class:"input-bakery-name"} %>
-  <%= f.input :phone_number%>
-  <%= f.input :address%>
-  <%= f.input :description%>
-  <%= f.input :post_code%>
-  <%= f.input :opening_hour%>
-  <%= f.input :closing_hour%>
-  <%= f.input :pictures, as: :file %>
-  <%= f.submit "Create a bakery", class: "style-btn-form" %>
-<% end %>
+<div class="form-to-add-a-bakery">
+
+  <%= simple_form_for @bakery do |f| %>
+    <div class= "content">
+      <%= f.input :name, input_html:{class:"input-bakery"}, placeholder:"type your name" %>
+      <%= f.input :phone_number, input_html:{class:"input-bakery"}, placeholder:"type your phone number" %>
+      <%= f.input :address, input_html:{class:"input-bakery"}, placeholder:"type your address" %>
+
+      <%= f.input :post_code, input_html:{class:"input-bakery"}, placeholder:"type your postcode" %>
+      <%= f.input :opening_hour, input_html:{class:"input-bakery-hour"} %>
+      <%= f.input :closing_hour, input_html:{class:"input-bakery-hour"} %>
+
+      <%= f.input :description, label_html:{ class:"description-label"}, input_html:{class:"input-bakery-description"}, placeholder:"..." %>
+
+    </div>
+
+
+    <div class="pictures">
+      <%= f.input :pictures, as: :file, label_html:{ class:"file-btn-label"},  input_html: { class:"input-bakery-pictures", multiple: true } %>
+    </div>
+    <div class="button-submit-form">
+      <%= f.submit " Create a bakery ", class: "style-btn-form" %>
+    </div>
+  <% end %>
+</div>
+<!-- add specialty and tags-->
