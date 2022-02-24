@@ -1,4 +1,4 @@
-<div data-refresh-list-target="list">
+<div >
   <%unless @bakeries.empty? %>
 
       <% @bakeries.each do |bakery| %>
@@ -22,7 +22,7 @@
               </div>
 
            </div>
-           <div class='extras d-flex justify-content-end'>
+           <div class='extras d-flex justify-content-between'>
               <div class='p-2 d-flex flex-column justify-content-between'>
             <div>
               <% if (Time.now.hour > bakery.opening_hour.hour && Time.now.hour < bakery.closing_hour.hour)%>
@@ -35,11 +35,10 @@
               <p>5m</p>
             </div>
           </div>
-          <div class='p-2 d-flex flex-column justify-content-between'>
-            <div>
-              <i class="far fa-star fa-lg"></i>
-            </div>
-          </div>
+        <div class='p-2 d-flex flex-column justify-content-between' data-controller="refresh-list">
+            <%= render 'favourites', bakery: bakery %>
+        </div>
+
         </div>
            </div>
 

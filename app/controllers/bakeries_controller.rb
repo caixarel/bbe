@@ -17,4 +17,19 @@ class BakeriesController < ApplicationController
       }
     end
   end
+  def update_favourites
+    @bakery = Bakery.find(params[:id])
+    @favourite = Favourite.where(user: current_user).where(bakery: @bakery)
+    if @favourite.empty?
+      Favourite.create(user: current_user, bakery: @bakery)
+    else
+       @favourite.first.destroy
+    end
+
+    respond_to do |format|
+      format.html # Follow regular flow of Rails
+      format.text { render partial: 'favourites.html', locals: { bakery: @bakery} }
+
+    end
+  end
 end

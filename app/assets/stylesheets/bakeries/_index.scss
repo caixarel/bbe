@@ -5,11 +5,32 @@
   width: 200px;
 }
 .bakery-card-infos{
-  width: 400px;
+  width: 70%;
 }
 #name a{
   color: black;
 }
 #location p{
   color: orange ;
+}
+.favourite-icon{
+  text-decoration: none;
+  color: grey;
+  background: white;
+  border:0;
+}
+.favourite-icon:hover{
+  color: black;
+}
+.popup{
+  padding-top: 10px;
+  font-size: medium;
+  font-weight: bolder;
+  padding: 0px;
+  margin: 10px;
+}
+
+.schedule{
+  padding: 0px;
+  margin: 0px;
 }

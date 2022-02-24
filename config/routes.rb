@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   resources :bakeries
+  get 'bakeries/addtofav/:id', to: "bakeries#update_favourites"
 end
