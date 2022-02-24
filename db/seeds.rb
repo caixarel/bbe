@@ -19,5 +19,5 @@ admin =User.create(email:'admin@gmail.com',password:'12345678' , password_confir
 puts 'Creating bakeries'
 
 addresses.each_with_index do |address ,index|
-  bakery = Bakery.create(name:Faker::Company.name, address:address , post_code:post_codes[index], description:Faker::Lorem.sentence(word_count: 8), opening_hour:Time.new, closing_hour:Time.new,phone_number:Faker::PhoneNumber.cell_phone,user:admin)
+  bakery = Bakery.create(name:Faker::Company.name, address:address , post_code:post_codes[index], description:Faker::Lorem.sentence(word_count: 8), opening_hour:Time.new, closing_hour:Time.new, phone_number:Faker::PhoneNumber.cell_phone, user:admin)
 end
