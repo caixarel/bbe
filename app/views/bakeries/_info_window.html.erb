@@ -4,7 +4,9 @@
   <%else %>
   <img id="imgProd1" src="https://picsum.photos/id/237/200/150">
   <% end %>
-  <p class='popup'><%= bakery.name %></p>
+  <div class='name'><%= bakery.name %></div>
+  <div class='address'><%= bakery.address %></div>
+
   <% if (Time.now.hour > bakery.opening_hour.hour && Time.now.hour < bakery.closing_hour.hour)%>
     <p class='schedule' style="color:green">Open</p>
   <%else %>
