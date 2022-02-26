@@ -1,42 +1,45 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <%= link_to "#", class: "navbar-brand" do %>
-    <%= image_tag "logo-bbe.png" %>
-  <% end %>
 
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  <div class="logo">
+    <%= link_to "/", class: "navbar-brand" do %>
+      <%= image_tag "logo-bbe.png" %>
+    <% end %>
+  </div>
+
 
   <div class="BBE-title">
-    <h1>BBE</h1>
-  </div>
+    <% if current_page?(root_path) %>
+      <h1>BBE</h1>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <% if user_signed_in? %>
-        <li class="nav-item active">
-          <%= link_to "Home", "#", class: "nav-link" %>
-        </li>
-
-        <li class="nav-item">
-          <%= link_to "Messages", "#", class: "nav-link" %>
-        </li>
-
-        <li class="nav-item dropdown">
-          <%= image_tag "", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to "Action", "#", class: "dropdown-item" %>
-            <%= link_to "Another action", "#", class: "dropdown-item" %>
-            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+    <% else %>
+      <div class="search-bar">
+        <%= form_tag bakeries_path, method: :get do %>
+          <div class="col-sm d-flex column justify-content-center">
+            <%= text_field_tag :query,
+              params[:query],
+              class: "form-control",
+              id: "search-form-control",
+              placeholder: "Find a bakery"
+            %>
+          <%= submit_tag "Search", class: "btn btn-ghost" %>
           </div>
-        </li>
-
-      <% else %>
-        <li class="nav-item">
-          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-        </li>
-      <% end %>
-
-    </ul>
+        <% end %>
+      </div>
+    <% end %>
   </div>
+
+
+
+  <div class="dropdown">
+	  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+		Dropdown button
+	  </button>
+	  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+      <li><a class="dropdown-item" href="#">Action</a></li>
+      <li><a class="dropdown-item" href="#">Another action</a></li>
+      <li><a class="dropdown-item" href="#">Something else here</a></li>
+	  </ul>
+	</div>
+
+<!-- closing div-->
 </div>
