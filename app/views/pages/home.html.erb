@@ -17,7 +17,7 @@
   <div class="search row ">
     <p class="find-text">Find the best bakeries near you</p>
 
-    <div class='search-bar-home'>
+     <div class='search-bar-home'>
       <%= form_tag bakeries_path, method: :get do %>
         <div class="search-form-control form-group">
           <%= text_field_tag :query,
@@ -26,9 +26,10 @@
             id: "search-form-control",
             placeholder: "Find a pet"
           %>
-          <button name="button" type="submit" class="btn">
+          <%= submit_tag "Search", class: "btn" do%>
             <i class="fas fa-search"></i>
-          </button>
+
+          <%end %>
         </div>
       <% end %>
     </div>
