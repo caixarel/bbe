@@ -1,43 +1,55 @@
-.bakery-card{
+#index-container {
+  margin-right: 1rem;
+}
+
+
+
+.bakery-card {
   height: 150px;
   background: #FFFFFF;
   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.06);
+  position: relative;
 }
-.extras{
-  width: 200px;
+.extras {
+  width: 300px;
 }
-.bakery-card-infos{
+.bakery-card-infos {
   width: 70%;
 }
-#name a{
+
+#name a {
   color: black;
 }
-#location p{
-  font-family: ABeeZee;
-font-style: normal;
-font-weight: normal;
-font-size: 20px;
-line-height: 24px;
 
-color: #FF8D3A;
+#location p {
+  font-family: ABeeZee;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 24px;
+
+  color: #FF8D3A;
 }
-#address{
+
+#address {
   font-family: ABeeZee;
 font-style: normal;
 font-weight: normal;
 font-size: 20px;
 line-height: 24px;
 }
-.favourite-icon{
+
+.favourite-icon {
   text-decoration: none;
   color: grey;
   background: white;
   border:0;
 }
-.favourite-icon:hover{
+.favourite-icon:hover {
   color: black;
 }
-.popup{
+
+.popup {
   padding-top: 10px;
   font-size: medium;
   font-weight: bolder;
@@ -45,11 +57,18 @@ line-height: 24px;
   margin: 10px;
 }
 
-.schedule{
+.schedule {
   padding: 0px;
   margin: 0px;
 }
-.bakery_name{
+
+.favourites {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+.bakery_name {
   font-family: Anton;
   font-style: normal;
   font-weight: normal;
@@ -58,6 +77,23 @@ line-height: 24px;
 
   color: #000000;
 }
-a{
+
+a {
   text-decoration: none;
+}
+
+
+
+
+.distance-p {
+  font-family: "helvetica neue" ;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 22px;
+
+  margin-top: 40%;
+}
+
+.p-3 {
+  padding: 0;
 }
