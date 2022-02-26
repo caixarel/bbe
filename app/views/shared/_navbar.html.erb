@@ -1,16 +1,22 @@
+
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <%= link_to "#", class: "navbar-brand" do %>
-    <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
-  <% end %>
+  <div class="logo">
+    <%= link_to "/", class: "navbar-brand" do %>
+      <%= image_tag "logo-bbe.png", class:"logo-bbe" %>
+    <% end %>
+  </div>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div class='search-bar'>
+  <% if current_page?(root_path) %>
+    <h1>BBE</h1>
+
+  <% else %>
+    <div class='search-bar'>
       <%= form_tag bakeries_path, method: :get do %>
         <div class="col-sm d-flex column justify-content-center">
-
           <%= text_field_tag :query,
             params[:query],
             class: "form-control",
@@ -18,20 +24,31 @@
             placeholder: "Find a pet"
           %>
           <%= submit_tag "Search", class: "btn btn-ghost" %>
-
         </div>
-        <% end %>
-
+      <% end %>
     </div>
+  <% end %>
 
   <div class="dropdown">
-	  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-		Dropdown button
-	  </button>
-	  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-		<li><a class="dropdown-item" href="#">Action</a></li>
-		<li><a class="dropdown-item" href="#">Another action</a></li>
-		<li><a class="dropdown-item" href="#">Something else here</a></li>
+
+	  <div class="btn-menu dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+    <%= image_tag "menu_icon.png", class:"menu-bbe" %>
+    </div>
+
+	  <ul class="dropdown-menu dropdown-menu-end " aria-labelledby="dropdownMenuButton1">
+      <%unless current_user %>
+        <li><%= link_to "Log in", new_user_session_path %></li>
+        <li><%= link_to "Sign up", new_user_registration_path %></li>
+      <%else %>
+        <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+      <% end %>
+
+       <!--
+        <li><a class="dropdown-item" href="">Account</a></li>
+        <li><a class="dropdown-item" href="#">Favourites</a></li>
+        -->
 	  </ul>
 	</div>
+
+  <!--closind div-->
 </div>
