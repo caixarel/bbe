@@ -1,0 +1,107 @@
+.show-container{
+  margin: 1rem;
+}
+
+.description{
+  width: 93%;
+  background-color: white;
+  margin: 10px 10px 0px 30px;
+  background: rgba(255, 255, 255, 0.97);
+  border: 1px solid rgba(0, 0, 0, 0.19);
+  box-sizing: border-box;
+  border-radius: 15px;
+  padding: 30px;
+}
+.content{
+  width: 80%;
+}
+.pictures{
+  width: 100%;
+  margin-left: 20px;
+}
+.show_bakery_name h4{
+  font-family: Anton;
+font-style: normal;
+font-weight: normal;
+font-size: 32px;
+line-height: 48px;
+letter-spacing: 0.065em;
+
+color: #000000;
+}
+#text{
+  justify-content: space-between;
+}
+.hour_icon{
+  text-align: center;
+  background: rgba(255, 153, 121, 0.1);
+border: 1px solid #000000;
+box-sizing: border-box;
+border-radius: 15px;
+}
+.picture{
+  border-radius: 15px;
+}
+.show{
+  font-family: Helvetica Neue;
+font-style: normal;
+font-weight: 300;
+font-size: 18px;
+line-height: 22px;
+/* identical to box height */
+color: #8C8C8C;
+}
+.show-tag{
+  background: #fff5f2;
+  opacity: 80%;
+  border: 1px solid rgba(0, 0, 0, 0.19);
+  box-sizing: border-box;
+  border-radius: 15px;
+  margin-right:10px;
+  p{
+    font-family: Helvetica Neue;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 15px;
+    margin: 5px 10px;
+    color: #000000;
+  }
+}
+.show-tag:hover{
+  background: rgba(255, 153, 121, 0.8);
+}
+.ranking{
+  font-family: Anton;
+  font-size: 28px;
+  line-height: 48px;
+  letter-spacing: 0.065em;
+}
+.description-tags{
+  display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.style-btn-form {
+  font-style: normal;
+  font-family: “anton”;
+  background-color: transparent;
+  border: 1px solid #4E2100;
+  box-sizing: border-box;
+  border-radius: 15px;
+  color: #00132C;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  padding: 16px 23px;
+  text-decoration: none;
+}
+.style-btn-form:hover {
+  background-color: rgba(223, 65, 2, 0.616);
+  cursor: crosshair;
+  color:black;
+}
+.div-btn-go{
+  display: flex;
+  justify-content: end;
+}

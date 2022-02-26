@@ -1,0 +1,85 @@
+<div class='show-container pt-2 d-flex '>
+  <div class="main_image m-2">
+    <% if @bakery.pictures.attached? %>
+      <%= cl_image_tag @bakery.photo.key, class:'picture', height: 150, width: 158, crop: :fill %>
+    <%else %>
+      <img class='picture'  src="https://picsum.photos/id/237/400/500">
+    <% end %>
+  </div>
+  <div class='content'>
+    <div class='pictures d-flex'>
+      <% if @bakery.pictures.attached? %>
+        <%@bakery.pictures.each do |picture| %>
+        <div class='m-2'>
+          <%= cl_image_tag bakery.photo.key, class:"picture", height: 150, width: 158, crop: :fill %>
+        </div>
+        <%end %>
+      <%else %>
+      <div class='mt-2 mx-4'>
+        <img class='picture' src="https://picsum.photos/id/237/150/150">
+      </div><div class='mt-2 mx-4'>
+        <img class='picture' src="https://picsum.photos/id/237/150/150">
+      </div><div class='mt-2 mx-4'>
+        <img class='picture' src="https://picsum.photos/id/237/150/150">
+      </div>
+      <div class='mt-2 mx-4'>
+        <img class='picture' src="https://picsum.photos/id/237/150/150">
+      </div>
+      <% end %>
+    </div>
+    <div class="description ">
+      <div class='d-flex justify-content-sm-between'>
+        <div class="info">
+          <div class="show_bakery_name">
+            <h4><%=@bakery.name.upcase%></h4>
+          </div>
+          <div class=" show show_address">
+            <%= @bakery.address.capitalize %>, <%= @bakery.post_code %>
+          </div>
+          <div class="show phone">
+            <%= @bakery.phone_number %>
+          </div>
+        </div>
+        <div class="reviews">
+          <p class= 'ranking'>#1 IN BELGIUM</p>
+        </div>
+      </div>
+      <br>
+      <div id="text" class='d-flex pt-2'>
+        <div class='description-tags'>
+          <p class='show'><%= @bakery.description %></p>
+          <div class='d-flex'>
+            <div class='show-tag'>
+              <p >Vegan</p>
+            </div>
+              <div class='show-tag'>
+              <p>Cheap</p>
+            </div>
+          </div>
+        </div>
+        <div class='p-2 d-flex justify-content-between'>
+                <div>
+                  <div>
+                   <% if (Time.now.hour > @bakery.opening_hour.hour && Time.now.hour < @bakery.closing_hour.hour)%>
+                    <p style="color:green ; text-align:center">Open now</p>
+                  <%else %>
+                    <p style="color:red">Closed now</p>
+                  <%end %>
+                  </div>
+                  <div>
+                    <p class='m-0'>Opening hour</p>
+                    <p class='hour_icon'><%= @bakery.opening_hour.strftime("%H:%M") %></p>
+                  </div>
+                  <div>
+                    <p class=' mt-2 m-0'>Closing hour</p>
+                    <p class='hour_icon'><%= @bakery.closing_hour.strftime("%H:%M") %></p>
+                  </div>
+                </div>
+              <div>
+      </div>
+    </div>
+  </div>
+  <div class='div-btn-go'>
+    <a class='style-btn-form'>Take me here</a>
+  </div>
+</div>

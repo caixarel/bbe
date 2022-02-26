@@ -3,8 +3,8 @@
 
       <% @bakeries.each do |bakery| %>
         <div class="bakery-card fit shadow mb-3 bg-white rounded d-flex" data-refresh-list-target="list" data-lat=<%=bakery.latitude %> data-lng=<%=bakery.longitude %>>
-          <% if bakery.photo.attached? %>
-            <%= cl_image_tag bakery.photo.key, height: 150, width: 158, crop: :fill %>
+          <% if bakery.pictures.attached? %>
+            <%= cl_image_tag bakery.pictures.key, height: 150, width: 158, crop: :fill %>
           <%else %>
             <img id="imgProd1" src="https://picsum.photos/id/237/158/150">
           <% end %>
@@ -24,14 +24,14 @@
            </div>
            <div class='extras d-flex justify-content-between'>
               <div class='p-2 d-flex flex-column justify-content-between'>
-            <div>
-              <% if (Time.now.hour > bakery.opening_hour.hour && Time.now.hour < bakery.closing_hour.hour)%>
-                <p style="color:green">Open</p>
-              <%else %>
-                <p style="color:red">Closed </p>
-              <%end %>
-            </div>
-            <div>
+                <div>
+                  <% if (Time.now.hour > bakery.opening_hour.hour && Time.now.hour < bakery.closing_hour.hour)%>
+                    <p style="color:green">Open</p>
+                  <%else %>
+                    <p style="color:red">Closed </p>
+                  <%end %>
+                </div>
+              <div>
               <p>5 min walk</p>
             </div>
           </div>
