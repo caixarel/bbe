@@ -1,0 +1,23 @@
+<div id="index-container" >
+
+  <!-- Below is the div that just is a 2 column grid for all pets on left and
+  the map on the right-->
+  <div class="parent d-flex">
+
+    <!-- Below is the left column which contains all the pets -->
+    <div class="bakery-cards col-6 p-3">
+    <%= render 'list', bakeries: @bakeries %>
+
+    </div>
+
+
+    <!-- Below is the right column with the map -->
+
+    <div class="map_card col-6 mb-3" id="map"
+        style=" height: 92vh;"
+        data-markers="<%= @markers.to_json %>"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+
+  </div>
+</div>
