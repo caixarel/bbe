@@ -1,16 +1,9 @@
-  <div data-refresh-list-target='id' data-id=<%= bakery.id %>>
-  <% if Favourite.where(user: current_user).where(bakery: bakery).empty?%>
-      <%= button_tag '',class:"far fa-star fa-lg favourite-icon",
-                      data: {
-                        refresh_list_target: 'button',
-                        action: "click->refresh-list#update"
-                      } %>
-  <%else %>
+  <div data-refresh-list-target='id' data-id="<%= bakery.id %>" >
+    <% favourite = Favourite.find_by(user: current_user, bakery: bakery) %>
+    <% if favourite.nil? %>
+      <%= link_to "", bakery_favourites_path(bakery), method: :create, class:"far fa-star fa-lg favourite-icon" %>
 
-  <%= button_tag '',class:"fa fa-star fa-lg favourite-icon",
-                      data: {
-                        refresh_list_target: 'button',
-                        action: "click->refresh-list#update"
-                      } %>
-  <%end %>
+    <%else %>
+      <%= link_to "", favourite_path(favourite), method: :delete, class:"fa fa-star fa-lg favourite-icon" %>
+    <%end %>
   </div>
