@@ -1,5 +1,5 @@
 <div class ='fit'>
-  <% if bakery.photo.attached? %>
+  <% if bakery.pictures.attached? %>
   <%= cl_image_tag bakery.photo.key, height: 100, width: 150, crop: :fill %>
   <%else %>
   <img id="imgProd1" src="https://picsum.photos/id/237/200/150">
