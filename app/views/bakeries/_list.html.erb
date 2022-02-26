@@ -14,38 +14,42 @@
             <div id="name" class="bakery_name">
               <h4><%= link_to bakery.name.upcase,bakery_path(bakery) %></h4>
             </div>
+
             <div id="address">
               <%= bakery.address.capitalize %>, <%= bakery.post_code %>
-              </div>
+            </div>
+
             <div id="location" class='pt-2'>
               <p>Locals <br>Visitors </p>
+            </div>
+
+          </div>
+
+          <div class='extras d-flex justify-content-between'>
+            <div class='p-2 d-flex flex-column justify-content-between'>
+              <div>
+                <% if (Time.now.hour > bakery.opening_hour.hour && Time.now.hour < bakery.closing_hour.hour)%>
+                  <p style="color:green">Open</p>
+                <%else %>
+                  <p style="color:red">Closed </p>
+                <%end %>
               </div>
 
-           </div>
-           <div class='extras d-flex justify-content-between'>
-              <div class='p-2 d-flex flex-column justify-content-between'>
-            <div>
-              <% if (Time.now.hour > bakery.opening_hour.hour && Time.now.hour < bakery.closing_hour.hour)%>
-                <p style="color:green">Open</p>
-              <%else %>
-                <p style="color:red">Closed </p>
-              <%end %>
+              <div class="distance-p">
+                <p>5 min walk</p>
+              </div>
             </div>
-            <div>
-              <p>5 min walk</p>
+            <div class='p-2 d-flex flex-column justify-content-between' data-controller="refresh-list">
+                <%= render 'favourites', bakery: bakery, class: "favourites" %>
             </div>
+
           </div>
-        <div class='p-2 d-flex flex-column justify-content-between' data-controller="refresh-list">
-            <%= render 'favourites', bakery: bakery %>
         </div>
-
-        </div>
-           </div>
-
-
 
       <% end %>
+
       <%else %>
         <h1>No bakeries found!</h1>
       <%end %>
+
 </div>

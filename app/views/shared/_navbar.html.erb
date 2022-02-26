@@ -36,9 +36,17 @@
     </div>
 
 	  <ul class="dropdown-menu dropdown-menu-end " aria-labelledby="dropdownMenuButton1">
-      <li><a class="dropdown-item" href="#">Action</a></li>
-      <li><a class="dropdown-item" href="#">account</a></li>
-      <li><a class="dropdown-item" href="#">favourites</a></li>
+      <%unless current_user %>
+        <li><%= link_to "Log in", new_user_session_path %></li>
+        <li><%= link_to "Sign up", new_user_registration_path %></li>
+      <%else %>
+        <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+      <% end %>
+
+       <!--
+        <li><a class="dropdown-item" href="">Account</a></li>
+        <li><a class="dropdown-item" href="#">Favourites</a></li>
+        -->
 	  </ul>
 	</div>
 

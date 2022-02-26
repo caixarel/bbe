@@ -13,6 +13,7 @@ class BakeriesController < ApplicationController
       {
         lat: bakery.latitude,
         lng: bakery.longitude,
+        image_url: helpers.asset_url('baguette2.png'),
         info_window: render_to_string(partial: "info_window", locals: { bakery: bakery })
       }
     end
