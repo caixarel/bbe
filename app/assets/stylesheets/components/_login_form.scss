@@ -6,16 +6,16 @@
     text-align: center
   }
   .btn{
-    width: 100%;
+    width: 60%;
     margin-bottom: 20px;
-    border: 1px solid black
+    border: 1px solid black;
   }
   a:link {
   color: lightslategray;
   background-color: transparent;
   text-decoration: none;
   opacity: 0.75
-}
+  }
 }
 
 .form-control {
@@ -29,4 +29,8 @@
 
 .form-check {
   margin-top: -40px
+}
+
+.form-text {
+  opacity: 0.75
 }
