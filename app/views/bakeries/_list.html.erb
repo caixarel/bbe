@@ -4,19 +4,19 @@
       <% @bakeries.each do |bakery| %>
         <div class="bakery-card fit shadow mb-3 bg-white rounded d-flex" data-refresh-list-target="list" data-lat=<%=bakery.latitude %> data-lng=<%=bakery.longitude %>>
           <% if bakery.photo.attached? %>
-            <%= cl_image_tag bakery.photo.key, height: 100, width: 100, crop: :fill %>
+            <%= cl_image_tag bakery.photo.key, height: 135, width: 158, crop: :fill %>
           <%else %>
-            <img id="imgProd1" src="https://picsum.photos/id/237/150/150">
+            <img id="imgProd1" src="https://picsum.photos/id/237/158/135">
           <% end %>
 
           <div class="bakery-card-infos p-2">
 
-            <div id="name">
+            <div id="name" class="bakery_name">
               <h4><%= link_to bakery.name.upcase,bakery_path(bakery) %></h4>
             </div>
             <div id="address">
               <%= bakery.address.capitalize %>, <%= bakery.post_code %>
-              </div>
+              </div><br>
             <div id="location">
               <p>Locals <br>Visitors </p>
               </div>
@@ -32,7 +32,7 @@
               <%end %>
             </div>
             <div>
-              <p>5m</p>
+              <p>5 min walk</p>
             </div>
           </div>
         <div class='p-2 d-flex flex-column justify-content-between' data-controller="refresh-list">
