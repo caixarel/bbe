@@ -1,4 +1,5 @@
 .show-container{
+
   margin: 1rem;
 }
 
@@ -109,4 +110,34 @@ color: #8C8C8C;
 }
 .btn-go{
   margin: 0px;
+}
+.display-reviews{
+  background: #fff5f2;
+}
+.display-reviews{
+  margin-left: 10px;
+  border-radius: 15px;
+  padding: 20px;
+  margin-top:10px;
+}
+.rating-review{
+  margin-left: 50px;
+  color: yellow;
+}
+.title-review{
+  margin-left: 10px;
+}
+.content-review{
+  margin-left: 10px;
+}
+.review-description{
+      width: 100%;
+    justify-content: space-between;
+}
+.show-reviews{
+      display: flex;
+    flex-direction: column;
+}
+.add-reviews{
+  align-self: flex-end;
 }

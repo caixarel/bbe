@@ -1,3 +1,4 @@
+
 <div class='show-container pt-2 d-flex '>
   <div class="main_image m-2">
     <% if @bakery.pictures.attached? %>
@@ -52,34 +53,67 @@
             <div class='show-tag'>
               <p >Vegan</p>
             </div>
-              <div class='show-tag'>
+            <div class='show-tag'>
               <p>Cheap</p>
             </div>
           </div>
         </div>
         <div class='p-2 d-flex justify-content-between'>
-                <div>
-                  <div>
-                   <% if (Time.now.hour > @bakery.opening_hour.hour && Time.now.hour < @bakery.closing_hour.hour)%>
-                    <p style="color:green ; text-align:center">Open now</p>
-                  <%else %>
-                    <p style="color:red">Closed now</p>
-                  <%end %>
-                  </div>
-                  <div>
-                    <p class='m-0'>Opening hour</p>
-                    <p class='hour_icon'><%= @bakery.opening_hour.strftime("%H:%M") %></p>
-                  </div>
-                  <div>
-                    <p class=' mt-2 m-0'>Closing hour</p>
-                    <p class='hour_icon'><%= @bakery.closing_hour.strftime("%H:%M") %></p>
-                  </div>
-                </div>
-              <div>
+          <div>
+            <div>
+              <% if (Time.now.hour > @bakery.opening_hour.hour && Time.now.hour < @bakery.closing_hour.hour)%>
+                <p style="color:green ; text-align:center">Open now</p>
+              <%else %>
+                <p style="color:red">Closed now</p>
+              <%end %>
+            </div>
+            <div>
+              <p class='m-0'>Opening hour</p>
+              <p class='hour_icon'><%= @bakery.opening_hour.strftime("%H:%M") %></p>
+            </div>
+            <div>
+              <p class=' mt-2 m-0'>Closing hour</p>
+              <p class='hour_icon'><%= @bakery.closing_hour.strftime("%H:%M") %></p>
+            </div>
+          </div>
+        <div>
       </div>
     </div>
   </div>
   <div class='div-btn-go'>
     <a class='style-btn-form btn-go'>Take me here</a>
+  </div></div>
+</div></div>
+
+<div class='show-container show-reviews'>
+  <div class='add-reviews'>
+    + Leave a new review
   </div>
+  <%@bakery.reviews.each do |review| %>
+  <div class='display-reviews d-flex'>
+
+    <div class='avatar-show'>
+      <img src="https://i.pravatar.cc/75" alt="" style='border-radius:50%'>
+    </div>
+    <div class='review-description d-flex'>
+      <div>
+        <div class='d-flex'>
+          <div class='title-review'><p><%= review.title%></p></div>
+          <div class='rating-review'>
+            <% review.rating.times do %>
+              <i class="fas fa-star"></i>
+            <%end %>
+          </div>
+        </div>
+        <div class='content-review'><p><%= review.content %></p>
+        </div>
+      </div>
+      <div class='pictures-review'>
+        <% if review.photo.attached? %>
+            <%= cl_image_tag review.photo.key, height: 150, width: 150, crop: :fill %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <%end %>
 </div>
