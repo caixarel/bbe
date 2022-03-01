@@ -61,7 +61,7 @@ color: #8C8C8C;
   box-sizing: border-box;
   border-radius: 15px;
   margin-right:10px;
-  p{
+  button{
     font-family: Helvetica Neue;
     font-style: normal;
     font-weight: bold;
@@ -72,6 +72,9 @@ color: #8C8C8C;
 }
 .show-tag:hover{
   background: rgba(255, 153, 121, 0.8);
+}
+.ranking-div{
+  margin-left: 50px;
 }
 .ranking{
   font-family: Anton;

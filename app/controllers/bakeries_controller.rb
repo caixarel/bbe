@@ -36,6 +36,7 @@ class BakeriesController < ApplicationController
 
   def show
     @bakery = Bakery.find(params[:id])
+    @review = Review.new
   end
 
   def new
