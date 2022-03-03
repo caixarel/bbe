@@ -1,0 +1,25 @@
+<div class='display-reviews d-flex' data-create-reviews-target='reviews'>
+
+    <div class='avatar-show'>
+      <img src="https://i.pravatar.cc/75" alt="" style='border-radius:50%'>
+    </div>
+    <div class='review-description d-flex'>
+      <div>
+        <div class='d-flex'>
+          <div class='title-review'><p><%= review.title%></p></div>
+          <div class='rating-review'>
+            <% review.rating.times do %>
+              <i class="fas fa-star"></i>
+            <%end %>
+          </div>
+        </div>
+        <div class='content-review'><p><%= review.content %></p>
+        </div>
+      </div>
+      <div class='pictures-review'>
+        <% if review.photo.attached? %>
+            <%= cl_image_tag review.photo.key, height: 150, width: 150, crop: :fill %>
+        <% end %>
+      </div>
+    </div>
+  </div>
