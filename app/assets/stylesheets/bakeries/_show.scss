@@ -73,9 +73,7 @@ color: #8C8C8C;
 .show-tag:hover{
   background: rgba(255, 153, 121, 0.8);
 }
-.ranking-div{
-  margin-left: 50px;
-}
+
 .ranking{
   font-family: Anton;
   font-size: 28px;
@@ -143,4 +141,35 @@ color: #8C8C8C;
 }
 .add-reviews{
   align-self: flex-end;
+}
+.average-rating{
+  background-color: white;
+  border-radius: 15px;
+  padding: 20px;
+  margin: 0.5rem !important;
+  .average{
+       border: #000000;
+    font-family: Helvetica Neue;
+    font-style: normal;
+    font-weight: 200;
+    font-size: 24px;
+    line-height: 29px;
+    /* identical to box height */
+
+    letter-spacing: 0.045em;
+  }
+  .fas{
+    color: yellow;
+
+  }
+}
+.visitors{
+
+  font-family: Helvetica Neue;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 28px;
+  line-height: 33px;
+  letter-spacing: 0.04em;
+  color: #FF7043;
 }
