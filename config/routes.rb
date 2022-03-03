@@ -4,4 +4,6 @@ Rails.application.routes.draw do
 
   resources :bakeries
   get 'bakeries/addtofav/:id', to: "bakeries#update_favourites"
+
+  resources :users
 end
