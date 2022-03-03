@@ -17,6 +17,8 @@ export default class extends Controller {
       .then(response => response.text())
       .then((data) => {
         this.reviewsTarget.outerHTML = data
+        this.formTarget.reset
+        this.formTarget.classList.add('d-none')
       })
   }
 }

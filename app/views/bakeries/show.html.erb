@@ -113,7 +113,7 @@
     <%end %>
     </div>
   </div>
-      <% if @bakery.reviews.count > 5 %>
+      <% if @bakery.reviews.count > 4 %>
         <%@bakery.reviews[-4..-1].reverse.each do |review| %>
           <%= render '/reviews/reviews', review: review %>
           <%end %>
@@ -125,5 +125,6 @@
           <div class='display-reviews d-flex d-none' data-create-reviews-target='reviews'>
           </div>
         <%end %>
+
 
 </div>
