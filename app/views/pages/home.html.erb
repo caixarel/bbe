@@ -2,7 +2,7 @@
 
 <div class="banner-container">
 
-  <div class="text row">
+  <div class="titles row">
     <div class="title col-6">
       <h1>BIG<br>BAGUETTE<br>ENERGY</h1>
     </div>
@@ -24,12 +24,13 @@
             params[:query],
             class: "form-control string required",
             id: "search-form-control",
-            placeholder: "Find a pet"
+            placeholder: "..."
           %>
-          <%= submit_tag "Search", class: "btn" do%>
-            <i class="fas fa-search"></i>
 
-          <%end %>
+          <button name="button" type="submit" class="btn">
+            <i class="fas fa-search"></i>
+          </button>
+
         </div>
       <% end %>
     </div>

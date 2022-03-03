@@ -21,14 +21,17 @@
             </div>
 
             <div id="location" class='pt-2'>
-              <p>Locals <br>Visitors </p>
+              <ul style="list-style: none;">
+                <li>Locals</li>
+                <li>Visitors</li>
+              </ul>
             </div>
 
           </div>
 
           <div class='extras d-flex justify-content-between'>
             <div class='p-2 d-flex flex-column justify-content-between'>
-              <div>
+              <div id="time">
                 <% if (Time.now.hour > bakery.opening_hour.hour && Time.now.hour < bakery.closing_hour.hour)%>
                   <p style="color:green">Open</p>
                 <%else %>
@@ -37,7 +40,10 @@
               </div>
 
               <div class="distance-p">
-                <p>5 min walk</p>
+                <%= link_to bakery_path(bakery) do %>
+                  5 min walk
+                  <i class="fas fa-arrow-right"></i>
+                <% end %>
               </div>
             </div>
             <div class='p-2 d-flex flex-column justify-content-between' data-controller="refresh-list">
