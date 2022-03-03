@@ -40,8 +40,10 @@ class BakeriesController < ApplicationController
     @visitors = Review.where(bakery: @bakery).where(visitor: true)
     @locals = Review.where(bakery: @bakery).where(visitor: false)
     sum = 0
-    @bakery.reviews.each { |review| sum += review.rating }
-    @average_rating = sum.to_f / @bakery.reviews.count
+    unless @bakery.reviews.empty?
+      @bakery.reviews.each { |review| sum += review.rating }
+      @average_rating = sum.to_f / @bakery.reviews.count
+    end
   end
 
   def new
