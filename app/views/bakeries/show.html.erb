@@ -1,0 +1,130 @@
+
+<div class='show-container pt-2 d-flex '>
+  <div>
+    <div class="main_image m-2">
+      <% if @bakery.pictures.attached? %>
+        <%= cl_image_tag @bakery.photo.key, class:'picture', height: 150, width: 158, crop: :fill %>
+      <%else %>
+        <img class='picture'  src="https://picsum.photos/id/237/400/500">
+      <% end %>
+    </div>
+    <div class='average-rating'>
+      <p class='visitors'>Visitors: <%= @visitors.count unless @visitors.empty? %>/<%= @bakery.reviews.count unless @bakery.reviews.empty? %></p>
+      <p class='visitors'>Locals: <%= @locals.count unless @visitors.empty?%>/<%= @bakery.reviews.count unless @bakery.reviews.empty?%></p>
+      <% if @average_rating %>
+      <p class='average'>Average rating: <%@average_rating.to_i.times do %>
+              <i class="fas fa-star"></i>
+            <%end %></p>
+      <%end %>
+    </div>
+  </div>
+  <div class='content'>
+    <div class="bakery-description ">
+      <div class='d-flex justify-content-between'>
+        <div class="info">
+          <div class="show_bakery_name">
+            <h4><%=@bakery.name.upcase%></h4>
+          </div>
+          <div class=" show show_address">
+            <%= @bakery.address.capitalize %>, <%= @bakery.post_code %>
+          </div>
+          <div class="show phone">
+            <%= @bakery.phone_number %>
+          </div>
+        </div>
+        <div class="ranking-div">
+          <p class= 'ranking'>#1 IN BELGIUM</p>
+        </div>
+
+          <div class='p-2 d-flex justify-content-between'>
+            <div>
+              <div>
+                <% if (Time.now.hour > @bakery.opening_hour.hour && Time.now.hour < @bakery.closing_hour.hour)%>
+                  <p style="color:green ; text-align:center">Open now</p>
+                <%else %>
+                  <p style="color:red">Closed now</p>
+                <%end %>
+              </div>
+              <div>
+                <p class='m-0'>Opening hour</p>
+                <p class='hour_icon'><%= @bakery.opening_hour.strftime("%H:%M") %></p>
+              </div>
+              <div>
+                <p class=' mt-2 m-0'>Closing hour</p>
+                <p class='hour_icon'><%= @bakery.closing_hour.strftime("%H:%M") %></p>
+              </div>
+            </div>
+          <div></div></div>
+
+
+      </div>
+      <br>
+      <div id="text" class='d-flex pt-2'>
+        <div class='description-tags'>
+          <div class='d-flex'>
+          <% if @bakery.tags.empty? %>
+            <div class='show-tag'>
+              <button class='btn'>Vegan</button>
+            </div>
+            <div class='show-tag'>
+              <button class='btn'>Cheap</button>
+            </div>
+            <%else %>
+              <% @bakery.tags.each do |tag| %>
+                <div class='show-tag'>
+                  <button class='btn'><%= tag.category %></button>
+                </div>
+              <%end %>
+            <% end %>
+          </div>
+          <p class='show'><%= @bakery.description %></p>
+
+        </div>
+
+      </div>
+        <div class='div-btn-go'>
+          <a class='style-btn-form btn-go'>Take me here</a>
+        </div>
+    </div>
+
+  </div>
+
+</div></div></div>
+
+<div class='show-container show-reviews'data-controller="create-reviews">
+  <div class='container'>
+    <div >
+    <button data-action="click->create-reviews#displayForm"><i class="fas fa-pen fa-xs ml-2" ></i>
+      create a review</button>
+      <%= simple_form_for [@bakery,@review], method: :post, html: { class:'d-none', data: { create_reviews_target: 'form', action: 'submit->create-reviews#create'  } } do |f| %>
+    <%= f.input :content %>
+      <%=f.input :rating ,as:
+            :select,
+            collection: [['1',1],['2',2],['3',3],['4',4],['5',5]],
+            disabled: [] %>
+      <%=f.input :title %>
+      <%= f.input :photo, as: :file %>
+
+      <%=f.input :visitor,
+            as: :select,
+            collection: [['local',false],['visitor',true]],
+            disabled: [] %>
+      <%= f.submit %>
+    <%end %>
+    </div>
+  </div>
+      <% if @bakery.reviews.count > 4 %>
+        <%@bakery.reviews[-4..-1].reverse.each do |review| %>
+          <%= render '/reviews/reviews', review: review %>
+          <%end %>
+        <%elsif @bakery.reviews.count >0%>
+          <%@bakery.reviews.reverse.each do |review| %>
+            <%= render '/reviews/reviews', review: review %>
+          <%end %>
+        <% else %>
+          <div class='display-reviews d-flex d-none' data-create-reviews-target='reviews'>
+          </div>
+        <%end %>
+
+
+</div>
