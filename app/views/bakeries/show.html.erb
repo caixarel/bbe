@@ -82,6 +82,21 @@
         </div>
 
       </div>
+      <div class='d-flex'>
+        <div >
+          <p style="font-size: 25px;padding-right:10px">Must try!</p>
+          <p style="font-size: 25px;padding-right:10px">Menu!</p>
+
+        </div>
+        <div>
+          <span class='show'><%unless @speciality.empty? %>
+            <% @speciality.each do |special|%>
+              <%=  special.name%>
+            <%end  %>
+            <%end %></span>
+        </div>
+
+      </div>
         <div class='div-btn-go'>
           <a class='style-btn-form btn-go'>Take me here</a>
         </div>
@@ -113,18 +128,18 @@
     <%end %>
     </div>
   </div>
+      <div data-create-reviews-target='reviews'>
       <% if @bakery.reviews.count > 4 %>
-        <%@bakery.reviews[-4..-1].reverse.each do |review| %>
-          <%= render '/reviews/reviews', review: review %>
-          <%end %>
-        <%elsif @bakery.reviews.count >0%>
-          <%@bakery.reviews.reverse.each do |review| %>
-            <%= render '/reviews/reviews', review: review %>
-          <%end %>
-        <% else %>
-          <div class='display-reviews d-flex d-none' data-create-reviews-target='reviews'>
-          </div>
-        <%end %>
+              <%@bakery.reviews[-4..-1].reverse.each do |review| %>
+                <%= render '/reviews/reviews', review: review %>
+                <%end %>
+              <%elsif @bakery.reviews.count >0%>
+                <%@bakery.reviews.reverse.each do |review| %>
+                  <%= render '/reviews/reviews', review: review %>
+                <%end %>
+              <%end %>
+      </div>
+
 
 
 </div>
