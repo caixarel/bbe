@@ -113,15 +113,15 @@
     <%end %>
     </div>
   </div>
-      <div class='display-reviews d-flex' data-create-reviews-target='reviews'>
-          <% if @bakery.reviews.count > 5 %>
-            <%@bakery.reviews[-4..-1].reverse.each do |review| %>
-              <%= render '/reviews/reviews', review: review %>
-              <%end %>
-            <%elsif @bakery.reviews.count >0%>
-              <%@bakery.reviews.reverse.each do |review| %>
-                <%= render '/reviews/reviews', review: review %>
-              <%end %>
-            <%end %>
-      </div>
+  <div class='display-reviews d-flex' data-create-reviews-target='reviews'>
+      <% if @bakery.reviews.count > 5 %>
+        <%@bakery.reviews[-4..-1].reverse.each do |review| %>
+          <%= render '/reviews/reviews', review: review %>
+          <%end %>
+        <%elsif @bakery.reviews.count >0%>
+          <%@bakery.reviews.reverse.each do |review| %>
+            <%= render '/reviews/reviews', review: review %>
+          <%end %>
+        <%end %>
+  </div>
 </div>
