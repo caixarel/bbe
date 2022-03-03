@@ -113,8 +113,9 @@
     <%end %>
     </div>
   </div>
-    <%@bakery.reviews[-4..-1].reverse.each do |review| %>
-      <%= render '/reviews/reviews', review: review %>
-    <%end %>
-
+    <% unless @bakery.reviews.empty? %>
+      <%@bakery.reviews[-4..-1].reverse.each do |review| %>
+        <%= render '/reviews/reviews', review: review %>
+      <%end %>
+    <% end %>
 </div>
