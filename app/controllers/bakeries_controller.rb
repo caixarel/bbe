@@ -25,13 +25,24 @@ class BakeriesController < ApplicationController
     if @favourite.empty?
       Favourite.create(user: current_user, bakery: @bakery)
     else
-       @favourite.first.destroy
+      @favourite.first.destroy
     end
 
     respond_to do |format|
       format.html # Follow regular flow of Rails
       format.text { render partial: 'favourites.html', locals: { bakery: @bakery} }
+    end
+  end
 
+  def show
+    @bakery = Bakery.find(params[:id])
+    @review = Review.new
+    @visitors = Review.where(bakery: @bakery).where(visitor: true)
+    @locals = Review.where(bakery: @bakery).where(visitor: false)
+    sum = 0
+    unless @bakery.reviews.empty?
+      @bakery.reviews.each { |review| sum += review.rating }
+      @average_rating = sum.to_f / @bakery.reviews.count
     end
   end
 
@@ -69,9 +80,7 @@ class BakeriesController < ApplicationController
     end
   end
 
-  def show
-    set_bakery
-  end
+
 
   private
 

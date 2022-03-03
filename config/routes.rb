@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
 
-  resources :bakeries
+  resources :bakeries do
+    resources :reviews, only: [:new, :create]
+  end
   get 'bakeries/addtofav/:id', to: "bakeries#update_favourites"
 end
