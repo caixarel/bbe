@@ -64,10 +64,10 @@
           <div class='d-flex'>
           <% if @bakery.tags.empty? %>
             <div class='show-tag'>
-              <button >Vegan</button>
+              <button class='btn'>Vegan</button>
             </div>
             <div class='show-tag'>
-              <button>Cheap</button>
+              <button class='btn'>Cheap</button>
             </div>
             <%else %>
               <% @bakery.tags.each do |tag| %>
@@ -113,7 +113,6 @@
     <%end %>
     </div>
   </div>
-  <div class='display-reviews d-flex' data-create-reviews-target='reviews'>
       <% if @bakery.reviews.count > 5 %>
         <%@bakery.reviews[-4..-1].reverse.each do |review| %>
           <%= render '/reviews/reviews', review: review %>
@@ -122,6 +121,9 @@
           <%@bakery.reviews.reverse.each do |review| %>
             <%= render '/reviews/reviews', review: review %>
           <%end %>
+        <% else %>
+          <div class='display-reviews d-flex d-none' data-create-reviews-target='reviews'>
+          </div>
         <%end %>
-  </div>
+
 </div>
