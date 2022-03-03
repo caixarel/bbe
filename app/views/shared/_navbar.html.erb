@@ -21,9 +21,12 @@
             params[:query],
             class: "form-control",
             id: "search-form-control",
-            placeholder: "Find a pet"
+            placeholder: "Find a bakery"
           %>
-          <%= submit_tag "Search", class: "btn btn-ghost" %>
+
+          <button name="button" type="submit" class="btn">
+            <i class="fas fa-search"></i>
+          </button>
         </div>
       <% end %>
     </div>
@@ -40,7 +43,10 @@
         <li><%= link_to "Log in", new_user_session_path %></li>
         <li><%= link_to "Sign up", new_user_registration_path %></li>
       <%else %>
+        <li><%= link_to "Favourites", destroy_user_session_path, method: :delete %></li>
+        <li><%= link_to "Account", destroy_user_session_path, method: :delete %></li>
         <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+
       <% end %>
 
        <!--
