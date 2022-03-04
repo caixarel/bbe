@@ -5,11 +5,11 @@ export default class extends Controller {
 
   update (){
     const url = `/bakeries/addtofav/${this.idTarget.dataset.id}`
+    console.log(this.idTarget.dataset.id)
 
   fetch(url, { headers: { 'Accept': 'text/plain' } })
   .then(response => response.text())
   .then((data) => {
-    console.log(data)
     this.idTarget.outerHTML = data;
       })
   }

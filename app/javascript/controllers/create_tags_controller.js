@@ -1,0 +1,38 @@
+import { Controller } from "stimulus";
+
+export default class extends Controller {
+
+  static targets = ['form', 'button', 'tags' ,'tagdiv'];
+
+  displayForm() {
+    this.formTarget.classList.toggle('d-none')
+  }
+  addVote(){
+    const url = `/bakeries/${this.tagdivTarget.dataset.bakery}/tags/${this.tagdivTarget.dataset.tag}`
+    console.log(url)
+    console.log(this.tagdivTarget.tag)
+    // fetch(url, { method: 'PATCH', headers: { 'Accept': 'text/plain' } })
+    //   .then(response => response.text())
+    //   .then((data) => {
+    //     console.log(data)
+    //     this.idTarget.InnerHTML = data;
+    //   });
+
+
+  }
+  create(event) {
+    event.preventDefault();
+    const url = this.formTarget.action
+    fetch(url, {
+      method: 'post',
+      headers: { 'Accept': 'text/plain' },
+      body: new FormData(this.formTarget)
+    })
+      .then(response => response.text())
+      .then((data) => {
+        this.tagsTarget.insertAdjacentHTML("beforeend", data)
+        this.formTarget.reset()
+        this.formTarget.classList.add('d-none')
+      })
+  }
+}

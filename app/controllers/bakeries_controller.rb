@@ -37,6 +37,7 @@ class BakeriesController < ApplicationController
   def show
     @bakery = Bakery.find(params[:id])
     @review = Review.new
+    @tag = Tag.new
     @visitors = Review.where(bakery: @bakery).where(visitor: true)
     @locals = Review.where(bakery: @bakery).where(visitor: false)
     sum = 0
@@ -44,7 +45,7 @@ class BakeriesController < ApplicationController
       @bakery.reviews.each { |review| sum += review.rating }
       @average_rating = sum.to_f / @bakery.reviews.count
     end
-      @products = @bakery.products
+      @products = Product.where(bakery: @bakery).where(speciality: nil)
       @speciality = Product.where(bakery: @bakery).where(speciality: true)
   end
 
