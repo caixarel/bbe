@@ -1,5 +1,7 @@
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
+import Directions from '@mapbox/mapbox-gl-directions/dist/mapbox-gl-directions';
+
 
 const initMapbox = () => {
   const mapElement = document.getElementById('map');
@@ -16,6 +18,18 @@ const initMapbox = () => {
       container: 'map',
       style: 'mapbox://styles/mapbox/streets-v10'
     });
+
+    var directions = new Directions({
+      accessToken: mapElement.dataset.mapboxApiKey,
+      unit: 'metric',
+      profile: 'mapbox/cycling',
+      controls:{instructions:false},
+      interactive: false
+    });
+
+    map.addControl(directions, 'top-left');
+
+
     const markers = JSON.parse(mapElement.dataset.markers);
     markers.forEach((marker) => {
       const popup = new mapboxgl.Popup().setHTML(marker.info_window);
@@ -25,8 +39,9 @@ const initMapbox = () => {
       element.style.backgroundSize = 'contain';
       element.style.width = '25px';
       element.style.height = '25px';
-
-
+      popup._content.firstElementChild.lastElementChild.addEventListener('click',()=>{
+        directions.setDestination([popup._content.firstElementChild.dataset.lng, popup._content.firstElementChild.dataset.lat])
+      })
       new mapboxgl.Marker(element)
         .setLngLat([marker.lng, marker.lat])
         .setPopup(popup)
@@ -35,9 +50,7 @@ const initMapbox = () => {
     fitMapToMarkers(map, markers);
     document.querySelectorAll('.fit').forEach(card=>{
       card.addEventListener('click', () => {
-        console.log(card.dataset.lng + 5)
-        console.log(card.dataset.lng )
-
+        directions.setDestination([card.dataset.lng, card.dataset.lat])
         map.fitBounds([
           [card.dataset.lng, card.dataset.lat], // southwestern corner of the bounds
           [card.dataset.lng,card.dataset.lat] // northeastern corner of the bounds
