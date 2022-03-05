@@ -78,11 +78,14 @@
               <%end %>
             <% end %>
           </div>
-          <button data-action="click->create-tags#displayForm"><i class="fas fa-pen fa-xs ml-2" ></i>Create Tag</button>
-          <%= simple_form_for [@bakery,@tag], method: :post, html: { class:'d-none', data: { create_tags_target: 'form', action: 'submit->create-tags#create'  } } do |f| %>
-              <%= f.input :category %>
-              <%= f.submit %>
-            <%end %>
+          <div class='create-tag'>
+              <button data-action="click->create-tags#displayForm"><i class="fas fa-pen fa-xs ml-2" ></i>Create Tag</button>
+              <%= simple_form_for [@bakery,@tag], method: :post, html: { class:'d-none', data: { create_tags_target: 'form', action: 'submit->create-tags#create'  } } do |f| %>
+                  <%= f.input :category %>
+                  <%= f.submit %>
+                <%end %>
+          </div>
+
 
           <p class='show'><%= @bakery.description %></p>
 
@@ -157,7 +160,13 @@
                 <%end %>
               <%end %>
       </div>
+  <!-- Below is the right column with the map -->
 
+    <div class="map_card mb-3" id="map"
+        style=" height: 92vh;"
+        data-markers="<%= @markers.to_json %>"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
 
 
 </div>

@@ -2,12 +2,18 @@ class BakeriesController < ApplicationController
 
   def index
     if params[:query].present?
-      @bakeries = Bakery.search_by_name_and_address(params[:query])
+      bakeries_by_name = Bakery.search_by_name(params[:query])
+      bakeries_near = Bakery.near(params[:query], 20)
+      if bakeries_by_name.empty?
+        @bakeries = bakeries_near
+      else
+        @bakeries = bakeries_by_name
+      end
+
 
     else
       @bakeries = Bakery.all
     end
-
 
     @markers = @bakeries.geocoded.map do |bakery|
       {
@@ -41,6 +47,14 @@ class BakeriesController < ApplicationController
     @visitors = Review.where(bakery: @bakery).where(visitor: true)
     @locals = Review.where(bakery: @bakery).where(visitor: false)
     sum = 0
+    @markers = [
+      {
+        lat: @bakery.latitude,
+        lng: @bakery.longitude,
+        image_url: helpers.asset_url('baguette2.png'),
+        info_window: render_to_string(partial: "info_window", locals: { bakery: @bakery })
+      }
+    ]
     unless @bakery.reviews.empty?
       @bakery.reviews.each { |review| sum += review.rating }
       @average_rating = sum.to_f / @bakery.reviews.count
