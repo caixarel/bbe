@@ -1,23 +1,28 @@
 
 <div class='show-container pt-2 d-flex '>
   <div>
-    <div class="main_image m-2">
+    <div class="picture-bakery">
       <% if @bakery.pictures.attached? %>
-        <%= cl_image_tag @bakery.photo.key, class:'picture', height: 150, width: 158, crop: :fill %>
+
+          <%= cl_image_tag @bakery.pictures.first.key, crop: :fill %>
+
       <%else %>
         <img class='picture'  src="https://picsum.photos/id/237/400/500">
       <% end %>
     </div>
+
     <div class='average-rating'>
-      <p class='visitors'>Visitors: <%= @visitors.count unless @visitors.empty? %>/<%= @bakery.reviews.count unless @bakery.reviews.empty? %></p>
-      <p class='visitors'>Locals: <%= @locals.count unless @visitors.empty?%>/<%= @bakery.reviews.count unless @bakery.reviews.empty?%></p>
+      <p class='visitors'>Visitors : <%= @visitors.count unless @visitors.empty? %>/<%= @bakery.reviews.count unless @bakery.reviews.empty? %></p>
+      <p class='visitors'>Locals : <%= @locals.count unless @visitors.empty?%>/<%= @bakery.reviews.count unless @bakery.reviews.empty?%></p>
       <% if @average_rating %>
-      <p class='average'>Average rating: <%@average_rating.to_i.times do %>
-              <i class="fas fa-star"></i>
-            <%end %></p>
+        <p class='average'>Average rating: <%@average_rating.to_i.times do %>
+          <i class="fas fa-star"></i>
+        <%end %></p>
       <%end %>
     </div>
+
   </div>
+
   <div class='content'>
     <div class="bakery-description ">
       <div class='d-flex justify-content-between'>
@@ -32,6 +37,7 @@
             <%= @bakery.phone_number %>
           </div>
         </div>
+
         <div class="ranking-div">
           <p class= 'ranking'>#1 IN BELGIUM</p>
         </div>
@@ -93,7 +99,7 @@
 
       </div>
       <div class='d-flex' >
-        <div style="width:200px;">
+        <div class="menu-bakery" style="width:200px;">
           <p style="font-size: 25px;padding-right:10px">Must try!</p>
           <p style="font-size: 25px;padding-right:10px">Menu!</p>
 

@@ -2,8 +2,6 @@
   margin-right: 1rem;
 }
 
-
-
 .bakery-card {
   height: 200px;
   background: white;
@@ -88,6 +86,33 @@
   color: black;
 }
 
+// pop up info window
+.mapboxgl-popup-content {
+  border-radius: 15px !important;
+
+  img {
+    border-radius: 10px;
+    width: 150px;
+
+  }
+  a {
+    color: black;
+    font-family: 'Anton';
+    font-size: 15px;
+    font-weight: 200;
+    margin-top: 6%;
+  }
+  .address {
+    font-family: 'Helvetica Neue';
+    font-size: 12px;
+    font-weight: 200;
+  }
+  .schedule {
+    text-transform: uppercase;
+    padding-top: 4%;
+  }
+}
+
 .popup {
   padding-top: 10px;
   font-size: medium;
@@ -154,3 +179,6 @@ a {
 .p-3 {
   padding: 0;
 }
+
+
+// carousel
