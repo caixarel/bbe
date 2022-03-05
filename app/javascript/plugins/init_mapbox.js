@@ -23,7 +23,7 @@ const initMapbox = () => {
       accessToken: mapElement.dataset.mapboxApiKey,
       unit: 'metric',
       profile: 'mapbox/cycling',
-      controls:{instructions:false},
+      // controls:{instructions:false},
       interactive: false
     });
 
@@ -39,7 +39,11 @@ const initMapbox = () => {
       element.style.backgroundSize = 'contain';
       element.style.width = '25px';
       element.style.height = '25px';
+      element.addEventListener('click',()=>{
+        popup._content.classList.toggle('d-none')
+      })
       popup._content.firstElementChild.lastElementChild.addEventListener('click',()=>{
+        popup._content.classList.toggle('d-none')
         directions.setDestination([popup._content.firstElementChild.dataset.lng, popup._content.firstElementChild.dataset.lat])
       })
       new mapboxgl.Marker(element)

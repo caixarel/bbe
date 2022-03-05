@@ -6,7 +6,6 @@ class BakeriesController < ApplicationController
       bakeries_near = Bakery.near(params[:query], 20)
       if bakeries_by_name.empty?
         @bakeries = bakeries_near
-      else
         @bakeries = bakeries_by_name
       end
 
@@ -96,8 +95,6 @@ class BakeriesController < ApplicationController
       redirect_to bakeries_path
     end
   end
-
-
 
   private
 
