@@ -6,7 +6,7 @@ class TagsController < ApplicationController
   end
   def create
     @bakery = Bakery.find(params[:bakery_id])
-    @tag = Tag.new(tag_params)
+  @tag = Tag.new(tag_params)
     @tag.bakery = @bakery
     @tag.votes = 1
     if @tag.save
