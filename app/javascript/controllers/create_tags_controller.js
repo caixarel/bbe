@@ -7,19 +7,6 @@ export default class extends Controller {
   displayForm() {
     this.formTarget.classList.toggle('d-none')
   }
-  addVote(){
-    const url = `/bakeries/${this.tagdivTarget.dataset.bakery}/tags/${this.tagdivTarget.dataset.tag}`
-    console.log(url)
-    console.log(this.tagdivTarget.tag)
-    // fetch(url, { method: 'PATCH', headers: { 'Accept': 'text/plain' } })
-    //   .then(response => response.text())
-    //   .then((data) => {
-    //     console.log(data)
-    //     this.idTarget.InnerHTML = data;
-    //   });
-
-
-  }
   create(event) {
     event.preventDefault();
     const url = this.formTarget.action

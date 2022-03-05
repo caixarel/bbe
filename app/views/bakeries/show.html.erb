@@ -162,8 +162,8 @@
       </div>
   <!-- Below is the right column with the map -->
 
-    <div class="map_card mb-3" id="map"
-        style=" height: 92vh;"
+    <div class="map-show mb-3 " id="map"
+        style=" height: 92vh; width:90vw;"
         data-markers="<%= @markers.to_json %>"
         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
