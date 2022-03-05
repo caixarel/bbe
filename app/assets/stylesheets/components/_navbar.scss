@@ -71,3 +71,33 @@
 .dropdown {
   margin-right: 3%;
 }
+
+.dropdown-menu {
+  border-radius: 10px;
+  background-color: #f6a67c;
+  border: 1px solid #000000;
+
+  align-items: center;
+
+  transform: translateX(-50%);
+
+  li {
+    font-family: 'Anton';
+    font-size: 18px;
+    letter-spacing: 0.05em;
+    padding-top: 3%;
+    padding-left: 5%;
+  }
+
+  li a {
+    color: black;
+  }
+
+  li:hover {
+    background: rgba(0, 0, 0, 0.25)
+  }
+}
+
+#dropdownMenuButton1 {
+  color: black;
+}
