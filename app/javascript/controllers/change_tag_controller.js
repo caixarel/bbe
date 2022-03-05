@@ -6,7 +6,7 @@ export default class extends Controller {
 
 
   addVote() {
-    const url = `/bakeries/${this.tagTarget.dataset.bakery}/tags/${this.tagTarget.dataset.id}`
+    const url = this.tagdivTarget.dataset.url
     console.log(url)
     console.log(this.tagdivTarget.tag)
     fetch(url, { method: 'PATCH', headers: { 'Accept': 'text/plain' } })
