@@ -7,4 +7,8 @@ Rails.application.routes.draw do
     resources :tags, only: [:new, :create, :update]
   end
   get 'bakeries/addtofav/:id', to: "bakeries#update_favourites"
+
+  resources :users
+  get 'users/:id/favourites', to: "users#favourites"
+  resources :favourites
 end
