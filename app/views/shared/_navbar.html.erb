@@ -35,15 +35,16 @@
   <div class="dropdown">
 
 	  <div class="btn-menu dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-    <%= image_tag "menu_icon.png", class:"menu-bbe" %>
+      <%= image_tag "menu_icon.png", class:"menu-bbe" %>
     </div>
 
-	  <ul class="dropdown-menu dropdown-menu-end " aria-labelledby="dropdownMenuButton1">
+	  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
       <%unless current_user %>
         <li><%= link_to "Log in", new_user_session_path %></li>
         <li><%= link_to "Sign up", new_user_registration_path %></li>
       <%else %>
         <li><%= link_to "All bakeries", bakeries_path, method: :get %></li>
+        <div class="dropdown-divider"></div>
         <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
         <li><%= link_to "My favourites", bakeries_path, method: :get %></li>
 

@@ -44,6 +44,8 @@ class BakeriesController < ApplicationController
       @bakery.reviews.each { |review| sum += review.rating }
       @average_rating = sum.to_f / @bakery.reviews.count
     end
+      @products = @bakery.products
+      @speciality = Product.where(bakery: @bakery).where(speciality: true)
   end
 
   def new
