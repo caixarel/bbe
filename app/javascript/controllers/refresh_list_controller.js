@@ -5,7 +5,6 @@ export default class extends Controller {
 
   update (){
     const url = `/bakeries/addtofav/${this.idTarget.dataset.id}`
-    console.log(this.idTarget.dataset.id)
 
   fetch(url, { headers: { 'Accept': 'text/plain' } })
   .then(response => response.text())
@@ -20,7 +19,6 @@ export default class extends Controller {
   //     .then(response => response.text())
   //     .then((data) => {
   //       //this.listTarget.outerHTML = data;
-  //       console.log(data)
   //     })
   // }
 
