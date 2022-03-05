@@ -1,15 +1,16 @@
-<div class ='fit'>
+<div class ='fit' data-lat=<%=bakery.latitude %> data-lng=<%=bakery.longitude %>>
   <% if bakery.pictures.attached? %>
   <%= cl_image_tag bakery.pictures.key, height: 100, width: 150, crop: :fill %>
   <%else %>
   <img id="imgProd1" src="https://picsum.photos/id/237/200/150">
   <% end %>
-  <div class='name'><%= bakery.name %></div>
+  <div class='name'><%= link_to bakery.name.upcase,bakery_path(bakery) %></div>
   <div class='address'><%= bakery.address %></div>
 
+
   <% if (Time.now.hour > bakery.opening_hour.hour && Time.now.hour < bakery.closing_hour.hour)%>
-    <p class='schedule' style="color:green">Open</p>
+    <p class='schedule' style="color:green">Open</p><button>Take me here</button>
   <%else %>
-    <p class='schedule' style="color:red">Closed </p>
+    <p class='schedule' style="color:red">Closed </p><button>Take me here</button>
   <%end %>
 </div>

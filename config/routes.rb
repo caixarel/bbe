@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   resources :bakeries do
     resources :reviews, only: [:new, :create]
+    resources :tags, only: [:new, :create, :update]
   end
   get 'bakeries/addtofav/:id', to: "bakeries#update_favourites"
 
