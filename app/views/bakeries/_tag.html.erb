@@ -1,3 +1,5 @@
-<div class='show-tag' data-change-tag-target='tagdiv'  data-url=<%= bakery_tag_path(@bakery,tag)%>>
-  <button class='btn' data-change-tag-target='tag' data-bakery=<%= @bakery.id %> data-id=<%= tag.id %> data-action='click->change-tag#addVote'  ><%= tag.category %> &nbsp;+<%=tag.votes  %></button>
+<div data-controller='change-tag'>
+  <div class='show-tag' data-change-tag-target='tagdiv'  data-url=<%= bakery_tag_path(@bakery,tag)%>>
+    <button class='btn' data-change-tag-target='tag' data-bakery=<%= @bakery.id %> data-id=<%= tag.id %> data-action='click->change-tag#addVote'  ><%= tag.category %> &nbsp;+<%=tag.votes  %></button>
+  </div>
 </div>

@@ -71,9 +71,8 @@
               </div>
             <%else %>
               <% @bakery.tags.each do |tag| %>
-              <div data-controller='change-tag'>
+
                 <%= render 'tag', tag: tag %>
-              </div>
 
               <%end %>
             <% end %>
