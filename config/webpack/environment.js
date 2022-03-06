@@ -12,7 +12,7 @@ environment.plugins.prepend('Provide',
     Popper: ['popper.js', 'default']
   })
 );
-environment.plugins.prepend('Provide',
+environment.plugins.prepend('env',
   new webpack.DefinePlugin({
     'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
   }),
