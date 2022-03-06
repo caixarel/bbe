@@ -9,8 +9,6 @@ class BakeriesController < ApplicationController
       else
         @bakeries = bakeries_by_name
       end
-
-
     else
       @bakeries = Bakery.all
     end
