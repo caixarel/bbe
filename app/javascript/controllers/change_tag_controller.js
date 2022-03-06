@@ -7,12 +7,9 @@ export default class extends Controller {
 
   addVote() {
     const url = this.tagdivTarget.dataset.url
-    console.log(url)
-    console.log(this.tagdivTarget.tag)
     fetch(url, { method: 'PATCH', headers: { 'Accept': 'text/plain' } })
       .then(response => response.text())
       .then((data) => {
-        console.log(data)
         this.tagdivTarget.outerHTML = data;
       });
 
