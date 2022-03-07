@@ -71,18 +71,15 @@
               </div>
             <%else %>
               <% @bakery.tags.each do |tag| %>
-              <div data-controller='change-tag'>
                 <%= render 'tag', tag: tag %>
-              </div>
-
               <%end %>
             <% end %>
           </div>
           <div class='create-tag'>
-              <button data-action="click->create-tags#displayForm"><i class="fas fa-pen fa-xs ml-2" ></i>Create Tag</button>
+              <button class='btn show-tag'data-action="click->create-tags#displayForm"><i class=" fas fa-pen fa-xs ml-2" ></i>Create Tag</button>
               <%= simple_form_for [@bakery,@tag], method: :post, html: { class:'d-none', data: { create_tags_target: 'form', action: 'submit->create-tags#create'  } } do |f| %>
                   <%= f.input :category %>
-                  <%= f.submit %>
+                  <%= f.submit "create", :class => "btn show-tag"  %>
                 <%end %>
           </div>
 
@@ -118,7 +115,7 @@
 
       </div>
         <div class='div-btn-go'>
-        <div class= 'show-tag'><a class='btn'>Take me here</a></div>
+        <div class= 'show-tag'><a href='#map' class='btn'>Take me here</a></div>
 
         </div>
     </div>
@@ -130,9 +127,9 @@
 <div class='show-container show-reviews'data-controller="create-reviews">
   <div class='container'>
     <div >
-    <button data-action="click->create-reviews#displayForm"><i class="fas fa-pen fa-xs ml-2" ></i>
+    <button class='btn show-tag'data-action="click->create-reviews#displayForm"><i class="fas fa-pen fa-xs ml-2" ></i>
       create a review</button>
-      <%= simple_form_for [@bakery,@review], method: :post, html: { class:'d-none', data: { create_reviews_target: 'form', action: 'submit->create-reviews#create'  } } do |f| %>
+      <%= simple_form_for [@bakery,@review], method: :post, html: { class:'d-none',style:"width: 70%; margin: auto;", data: { create_reviews_target: 'form', action: 'submit->create-reviews#create'  } } do |f| %>
        <%= f.input :content %>
       <%=f.input :rating ,as:
             :select,
@@ -162,8 +159,8 @@
       </div>
   <!-- Below is the right column with the map -->
 
-    <div class="map_card mb-3" id="map"
-        style=" height: 92vh;"
+    <div class="map-show mb-3 " id="map"
+        style=" height: 92vh; width:90vw;"
         data-markers="<%= @markers.to_json %>"
         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>

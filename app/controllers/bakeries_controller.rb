@@ -8,8 +8,6 @@ class BakeriesController < ApplicationController
         @bakeries = bakeries_near
         @bakeries = bakeries_by_name
       end
-
-
     else
       @bakeries = Bakery.all
     end
