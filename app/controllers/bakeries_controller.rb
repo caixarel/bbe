@@ -3,6 +3,8 @@ class BakeriesController < ApplicationController
   def index
     if params[:button].present?
       @page = params[:button]
+    else
+      @page = '1'
     end
     if params[:query].present?
       @query = params[:query]
@@ -15,6 +17,7 @@ class BakeriesController < ApplicationController
       end
     else
       @bakeries = Bakery.all
+
       @bakeries_count = @bakeries.length
       @query = ''
     end
