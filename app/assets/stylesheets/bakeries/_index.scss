@@ -2,11 +2,9 @@
   margin-right: 1rem;
 }
 
-
-
 .bakery-card {
-  height: 150px;
-  background: #FFFFFF;
+  height: 200px;
+  background: white;
   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.06);
   position: relative;
 }
@@ -30,7 +28,7 @@
     color: #000000;
   }
   .distance-p a:hover {
-    color: #000000a2;
+    color: #202020a2;
   }
 }
 
@@ -56,6 +54,7 @@
     line-height: 24px;
 
     color: #FF8D3A;
+    padding-top: 2%;
   }
 
   ul {
@@ -65,12 +64,16 @@
 
 
 
-#address {
-  font-family: ABeeZee;
+#address p {
+  font-family: 'Helvetica Neue';
   font-style: normal;
-  font-weight: normal;
-  font-size: 20px;
-  line-height: 24px;
+  font-weight: 200;
+  font-size: 16px;
+
+  padding-top: 2%;
+  line-height: 17px;
+  margin-bottom: 14px;
+
 }
 
 .favourite-icon {
@@ -81,6 +84,33 @@
 }
 .favourite-icon:hover {
   color: black;
+}
+
+// pop up info window
+.mapboxgl-popup-content {
+  border-radius: 15px !important;
+
+  img {
+    border-radius: 10px;
+    width: 150px;
+
+  }
+  a {
+    color: black;
+    font-family: 'Anton';
+    font-size: 15px;
+    font-weight: 200;
+    margin-top: 6%;
+  }
+  .address {
+    font-family: 'Helvetica Neue';
+    font-size: 12px;
+    font-weight: 200;
+  }
+  .schedule {
+    text-transform: uppercase;
+    padding-top: 4%;
+  }
 }
 
 .popup {
