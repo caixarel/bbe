@@ -5,8 +5,14 @@
   <div class="parent d-flex">
 
     <!-- Below is the left column which contains all the pets -->
-    <div class="bakery-cards col-6 p-3">
-    <%= render 'list', bakeries: @bakeries %>
+    <div class="bakery-cards col-6 p-3"  data-index-page-target='list'>
+      <% unless @page.nil? %>
+        <%= render 'list', bakeries: @bakeries %>
+
+      <%else %>
+      <%= render 'list', bakeries: @bakeries %>
+
+      <% end %>
 
     </div>
 
@@ -20,4 +26,15 @@
     </div>
 
   </div>
+  <div id="myDIV"class ='d-flex'>
+      <%unless @bakeries_count < 5 %>
+        <%(@bakeries_count.to_f / 5).ceil.times do |time| %>
+        <% if (time + 1) == @page.to_i %>
+          <%= button_to (time+1) , bakeries_path, method: :get,class:'btn btn-page active', params: { button: (time+1) } %>
+        <%else %>
+          <%= button_to (time+1) , bakeries_path, method: :get,class:'btn btn-page', params: { button: (time+1) } %>
+        <% end %>
+        <%end %>
+      <%end %>
+    </div>
 </div>

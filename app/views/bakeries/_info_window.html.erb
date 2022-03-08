@@ -9,8 +9,8 @@
 
 
   <% if (Time.now.hour > bakery.opening_hour.hour && Time.now.hour < bakery.closing_hour.hour)%>
-    <p class='schedule' style="color:green">Open</p><button>Take me here</button>
+    <p class='schedule' style="color:green">Open</p><button class='btn show-tag'>Take me here</button>
   <%else %>
-    <p class='schedule' style="color:red">Closed </p><button>Take me here</button>
+    <p class='schedule' style="color:red">Closed </p><button class='btn show-tag'>Take me here</button>
   <%end %>
 </div>

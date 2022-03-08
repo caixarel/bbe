@@ -7,6 +7,10 @@ export default class extends Controller {
   displayForm() {
     this.formTarget.classList.toggle('d-none')
   }
+  addVote(){
+    const url = `/bakeries/${this.tagdivTarget.dataset.bakery}/tags/${this.tagdivTarget.dataset.tag}`
+
+  }
   create(event) {
     event.preventDefault();
     const url = this.formTarget.action
