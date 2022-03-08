@@ -2,7 +2,9 @@
 
   margin: 1rem;
 }
-
+.page-container {
+  min-height: 50vh;
+}
 .bakery-description{
   width: 93%;
   background-color: white;
@@ -61,10 +63,12 @@ color: #8C8C8C;
   box-sizing: border-box;
   border-radius: 15px;
   margin-right:10px;
-  button{
-    font-family: Helvetica Neue;
+
+  .btn{
+    font-family: 'Helvetica Neue';
     font-style: normal;
-    font-weight: bold;
+    font-weight: 400;
+    text-transform: uppercase;
     font-size: 15px;
     margin: 5px 10px;
     color: #000000;
@@ -72,6 +76,20 @@ color: #8C8C8C;
 }
 .show-tag:hover{
   background: rgba(255, 153, 121, 0.8);
+  font-weight: 450;
+}
+
+
+.selection {
+  border: none;
+  .btn {
+
+  text-transform: uppercase;
+  font-weight: 500;
+  color: rgba(194, 31, 3, 0.959);
+  font-family: 'Anton';
+  font-size: 24px;
+  }
 }
 
 .ranking{
@@ -146,7 +164,15 @@ color: #8C8C8C;
   background-color: white;
   border-radius: 15px;
   padding: 20px;
-  margin: 0.5rem !important;
+  height: 200px;
+  margin: 40px 10px 0px 30px;
+
+  p {
+    font-family: 'Anton';
+    font-weight: 200;
+    font-size: 24px;
+    text-transform: uppercase;
+  }
   .average{
        border: #000000;
     font-family: Helvetica Neue;
@@ -175,4 +201,22 @@ color: #8C8C8C;
 }
 .create-tag{
   margin: 10px 0px 20px;
+}
+
+.picture-bakery {
+  margin: 10px 10px 0px 30px;
+  img {
+    height: 300px;
+    border-radius: 15px;
+  }
+
+}
+
+
+// menu
+.menu-bakery {
+  p {
+    font-family: 'Anton';
+  }
+
 }

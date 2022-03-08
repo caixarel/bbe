@@ -1,8 +1,8 @@
 <div class ='fit' data-lat=<%=bakery.latitude %> data-lng=<%=bakery.longitude %>>
   <% if bakery.pictures.attached? %>
-  <%= cl_image_tag bakery.pictures[0].key, height: 100, width: 150, crop: :fill %>
+   <%= cl_image_tag bakery.pictures[0].key, height: 100, width: 150, crop: :fill %>
   <%else %>
-  <img id="imgProd1" src="https://picsum.photos/id/237/200/150">
+    <img id="imgProd1" src="https://picsum.photos/id/237/200/150">
   <% end %>
   <div class='name'><%= link_to bakery.name.upcase,bakery_path(bakery) %></div>
   <div class='address'><%= bakery.address %></div>

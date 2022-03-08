@@ -1,23 +1,18 @@
 
 
 <div class="banner-container">
+  <div class="image">
+    <%= image_tag "logo-bbe-HD.svg", class:"image-bbe" %>
+  </div>
 
-  <div class="titles row">
-    <div class="title col-6">
-      <h1>BIG<br>BAGUETTE<br>ENERGY</h1>
-    </div>
-
-    <div class="smaller-title col-6">
-      <h2>CARE FOR THE PLANET &<br>YOUR TASTEBUDS</h2>
-    </div>
-
-  <!-- row div-->
+  <div class="title row">
+      <h1>BIG BAGUETTE ENERGY</h1>
   </div>
 
   <div class="search row ">
-    <p class="find-text">Find the best bakeries near you</p>
 
      <div class='search-bar-home'>
+      <p class="find-text">Find the best bakeries near you</p>
       <%= form_tag bakeries_path, method: :get do %>
         <div class="search-form-control form-group">
           <%= text_field_tag :query,
