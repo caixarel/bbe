@@ -1,19 +1,18 @@
 
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <div class="logo">
-    <%= link_to "/", class: "navbar-brand" do %>
-      <%= image_tag "logo-bbe.png", class:"logo-bbe" %>
-    <% end %>
-  </div>
+
+  <% unless current_page?(root_path) %>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <% if current_page?(root_path) %>
-    <h1>BBE</h1>
+      <div class="logo">
+        <%= link_to "/", class: "navbar-brand" do %>
+          <%= image_tag "logo-bbe.png", class:"logo-bbe" %>
+        <% end %>
+      </div>
 
-  <% else %>
     <div class='search-bar'>
       <%= form_tag bakeries_path, method: :get do %>
         <div class="col-sm d-flex column justify-content-center">
@@ -31,6 +30,7 @@
       <% end %>
     </div>
   <% end %>
+
 
   <div class="dropdown">
 
