@@ -1,5 +1,9 @@
+<% if params[:controller] == "pages" && params[:action] == "home" %>
+  <div class="navbar navbar-expand-sm navbar-light navbar-lewagon home-navbar">
 
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<% else%>
+  <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<% end %>
 
   <% unless current_page?(root_path) %>
 
