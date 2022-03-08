@@ -27,14 +27,17 @@
 
   </div>
   <div id="myDIV"class ='d-flex'>
-      <%unless @bakeries_count < 5 %>
-        <%(@bakeries_count.to_f / 5).ceil.times do |time| %>
-        <% if (time + 1) == @page.to_i %>
-          <%= button_to (time+1) , bakeries_path, method: :get,class:'btn btn-page active', params: { button: (time+1) } %>
-        <%else %>
-          <%= button_to (time+1) , bakeries_path, method: :get,class:'btn btn-page', params: { button: (time+1) } %>
-        <% end %>
+      <% if @bakeries_count %>
+          <%unless @bakeries_count < 5 %>
+          <%(@bakeries_count.to_f / 5).ceil.times do |time| %>
+          <% if (time + 1) == @page.to_i %>
+            <%= button_to (time+1) , bakeries_path, method: :get,class:'btn btn-page active', params: { button: (time+1) } %>
+          <%else %>
+            <%= button_to (time+1) , bakeries_path, method: :get,class:'btn btn-page', params: { button: (time+1) } %>
+          <% end %>
+          <%end %>
         <%end %>
-      <%end %>
+      <% end %>
+
     </div>
 </div>
