@@ -6,13 +6,10 @@ export default class extends Controller {
 
 
   addVote() {
-    const url = `/bakeries/${this.tagTarget.dataset.bakery}/tags/${this.tagTarget.dataset.id}`
-    console.log(url)
-    console.log(this.tagdivTarget.tag)
+    const url = this.tagdivTarget.dataset.url
     fetch(url, { method: 'PATCH', headers: { 'Accept': 'text/plain' } })
       .then(response => response.text())
       .then((data) => {
-        console.log(data)
         this.tagdivTarget.outerHTML = data;
       });
 

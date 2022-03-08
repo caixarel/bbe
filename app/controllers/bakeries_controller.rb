@@ -1,7 +1,13 @@
 class BakeriesController < ApplicationController
 
   def index
+    if params[:button].present?
+      @page = params[:button]
+    else
+      @page = '1'
+    end
     if params[:query].present?
+      @query = params[:query]
       bakeries_by_name = Bakery.search_by_name(params[:query])
       bakeries_near = Bakery.near(params[:query], 20)
       if bakeries_by_name.empty?
@@ -9,20 +15,23 @@ class BakeriesController < ApplicationController
       else
         @bakeries = bakeries_by_name
       end
-
-
     else
       @bakeries = Bakery.all
-    end
 
-    @markers = @bakeries.geocoded.map do |bakery|
-      {
-        lat: bakery.latitude,
-        lng: bakery.longitude,
-        image_url: helpers.asset_url('baguette2.png'),
-        info_window: render_to_string(partial: "info_window", locals: { bakery: bakery })
-      }
+      @bakeries_count = @bakeries.length
+      @query = ''
     end
+    unless @bakeries.empty?
+      @markers = @bakeries.geocoded.map do |bakery|
+        {
+          lat: bakery.latitude,
+          lng: bakery.longitude,
+          image_url: helpers.asset_url('baguette2.png'),
+          info_window: render_to_string(partial: "info_window", locals: { bakery: bakery })
+        }
+      end
+    end
+    @bakeries = @bakeries[((@page.to_i-1)*5)..((@page.to_i * 5)-1)]
   end
 
   def update_favourites
@@ -96,8 +105,6 @@ class BakeriesController < ApplicationController
       redirect_to bakeries_path
     end
   end
-
-
 
   private
 

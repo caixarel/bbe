@@ -1,15 +1,15 @@
 import { Controller } from "stimulus"
 
 export default class extends Controller {
-  static targets = ["button","id"]
+  static targets = ["button", "list"]
 
-  update (){
-    const url = `/bakeries/addtofav/${this.idTarget.dataset.id}`
+  update() {
+    const url = `bakeries/?query=${this.buttonTarget.dataset.query}`
 
-  fetch(url, { headers: { 'Accept': 'text/plain' } })
-  .then(response => response.text())
-  .then((data) => {
-    this.idTarget.outerHTML = data;
+    fetch(url, { headers: { 'Accept': 'text/plain' } })
+      .then(response => response.text())
+      .then((data) => {
+        console.log(data)
       })
   }
 
