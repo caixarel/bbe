@@ -12,7 +12,7 @@
       <p class='visitors'>Visitors: <%= @visitors.empty? ? 0 : @visitors.length%>/<%= @bakery.reviews.count unless @bakery.reviews.empty? %></p>
       <p class='visitors'>Locals: <%= @locals.empty? ? 0 : @locals.length%>/<%= @bakery.reviews.count unless @bakery.reviews.empty?%></p>
       <% if @average_rating %>
-      <p class='average'>Average rating: <%@average_rating.to_i.times do %>
+        <p class='average'>Average rating: <%@average_rating.to_i.times do %>
               <i class="fas fa-star"></i>
             <%end %></p>
       <%end %>
