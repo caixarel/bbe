@@ -70,6 +70,10 @@ class BakeriesController < ApplicationController
     end
       @products = Product.where(bakery: @bakery).where(speciality: nil)
       @speciality = Product.where(bakery: @bakery).where(speciality: true)
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def new

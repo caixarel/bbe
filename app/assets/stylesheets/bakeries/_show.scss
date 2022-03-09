@@ -46,6 +46,7 @@ border-radius: 15px;
 }
 .picture{
   border-radius: 15px;
+  padding: 0px;
 }
 .show{
   font-family: Helvetica Neue;
@@ -206,12 +207,11 @@ color: #8C8C8C;
 .picture-bakery {
   margin: 10px 10px 0px 30px;
   img {
-    height: 300px;
+    // height: 300px;
     border-radius: 15px;
   }
 
 }
-
 
 // menu
 .menu-bakery {
@@ -219,4 +219,15 @@ color: #8C8C8C;
     font-family: 'Anton';
   }
 
+}
+.modal-dialog{
+  max-width: 70vw;
+  height: 70vh;
+}
+.modal-content{
+  height: 100%;
+}
+.caroussel-pic{
+  width: 70vw;
+  height: 70vh;
 }

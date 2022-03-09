@@ -2,13 +2,7 @@
 <div class='show-container pt-2 d-flex '>
   <div>
     <div class="picture-bakery">
-      <% if @bakery.pictures.attached? %>
-
-          <%= cl_image_tag @bakery.pictures.first.key, crop: :fill %>
-
-      <%else %>
-        <img class='picture'  src="https://picsum.photos/id/237/400/500">
-      <% end %>
+      <%= render 'modal', bakery:@bakery%>
     </div>
 
     <div class='average-rating'>
