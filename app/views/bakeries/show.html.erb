@@ -113,7 +113,9 @@
               <div class="tag-form">
                 <%= simple_form_for [@bakery, @tag], method: :post, html: { class:'new-tag-form d-none', data: { create_tags_target: 'form', action: 'submit->create-tags#create'  } } do |f| %>
                     <%= f.input :category, input_html: { class: "tag-input" } %>
-                    <%= f.submit "create", :class => "btn show-tag"  %>
+
+                    <%= f.submit "", :class => "button_with_image_save"  %>
+
                   <%end %>
               </div>
 

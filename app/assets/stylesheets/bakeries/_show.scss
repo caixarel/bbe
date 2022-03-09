@@ -87,12 +87,12 @@ border-radius: 15px;
 
 
 .selection {
-  border: none;
-  .btn {
+  border: 3px solid rgba(224, 34, 1, 0.959);;
 
+  .btn {
   text-transform: uppercase;
   font-weight: 500;
-  color: rgba(194, 31, 3, 0.959);
+  color: rgba(0, 0, 0, 0.959);
   font-family: 'Anton';
   font-size: 24px;
   }
@@ -108,7 +108,13 @@ border-radius: 15px;
   display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+
+    p {
+      margin-bottom: 30px;
+    }
 }
+
+
 
 .style-btn-form {
   font-style: normal;
@@ -225,25 +231,66 @@ border-radius: 15px;
 .menu-bakery {
   p {
     font-family: 'Anton';
+    padding-top: 20px;
   }
 
 }
 
-.new-tag-form {
 
-      .tag-category {
-        label {
-      font-size: 18px !important;
-    }
-  }
-  }
 
 .create-tag {
+
+  .tag-form {
+
+    .string {
+      font-family: 'Helvetica';
+      font-size: 14px;
+      color: rgba(0, 0, 0, 0.411);
+      font-weight: 600;
+    }
+
+    .form-control {
+      width: 130px;
+      margin-left: 14px;
+      border:rgba(0, 0, 0, 0.904);
+      background-color: rgba(0, 0, 0, 0.151);
+      border-radius: 10px;
+      box-shadow: none;
+    }
+
+    .form-group {
+      margin-bottom: 10px;
+    }
+
+    .button_with_image_save {
+    background: url(check.svg);
+    height: 16px;
+    border: none;
+    margin-left: 130px;
+
+
+}
+
+    .button_with_image_save:hover {
+      opacity: 0.5;
+    }
+
+  margin-bottom: 25px;
+  padding: 5px;
+
+  }
+
   .new-tag-btn {
     border: none;
     background: transparent;
   }
   .new-tag-btn:hover {
     color: rgba(0, 0, 0, 0.411)
+  }
+
+  .tag-form {
+    .new-tag-form {
+      font-family: 'Helvetica';
+    }
   }
 }
