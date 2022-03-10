@@ -218,14 +218,21 @@ border-radius: 15px;
 .picture-bakery {
   margin: 10px 10px 0px 30px;
   img {
-    height: 500px;
+    height: 500px !important;
     border-radius: 15px;
-    width: 500px;
-    object-fit: cover;
+    width: 500px !important;
+    object-fit: contain;
   }
 
+  .active {
+    width: 500px;
+  }
 }
-
+.active, .btn-page:hover {
+  background-color: transparent;
+  width: 500px;
+  color: white;
+}
 
 // menu
 .menu-bakery {
@@ -293,4 +300,39 @@ border-radius: 15px;
       font-family: 'Helvetica';
     }
   }
+}
+
+
+.carousel-item .active .carousel-item-left {
+  margin-right: 0px !important;
+}
+.active {
+  width:0px;
+}
+.carousel .carousel-item {
+    width: 100%; /*slider width*/
+    max-height: 400px; /*slider height*/
+    //transition: transform 10s ease-in-out!important;
+
+    .carousel-item-left {
+      margin-right: 0px !important;
+    }
+}
+.carousel .carousel-item img {
+    width: 100%; /*img width*/
+    object-fit: contain;
+    overflow: hidden;
+    object-position: center;
+}
+@media (max-width: 767px) {
+    .block {
+        margin-left: -20px;
+        margin-right: -20px;
+    }
+}
+
+
+#carouselExampleControls {
+  margin: 0 auto;
+  max-width: 500px;
 }
