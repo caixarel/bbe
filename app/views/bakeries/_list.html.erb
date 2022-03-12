@@ -4,9 +4,7 @@
       <% Bakery.all.sort_by {|bakery| bakery.id}.each do |bakery| %>
         <div class="bakery-card fit shadow mb-3 bg-white rounded d-flex" data-refresh-list-target="list" data-lat=<%=bakery.latitude %> data-lng=<%=bakery.longitude %>>
           <% if bakery.pictures.attached? %>
-            <%bakery.pictures.each do |picture| %>
-              <%= cl_image_tag picture.key, height: 200, width: 158, crop: :fill %>
-            <%end %>
+              <%= cl_image_tag bakery.pictures.first.key, height: 200, width: 158, crop: :fill %>
           <%else %>
             <img id="imgProd1" src=<%= @pictures.sample %> width="158" height="200">
           <% end %>
