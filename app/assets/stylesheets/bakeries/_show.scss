@@ -111,6 +111,7 @@ border-radius: 15px;
 
     p {
       margin-bottom: 30px;
+      line-height: 2rem;
     }
 }
 
@@ -196,7 +197,7 @@ border-radius: 15px;
 
     letter-spacing: 0.045em;
   }
-  .fas{
+  .fas {
     color: yellow;
 
   }
@@ -235,14 +236,37 @@ border-radius: 15px;
 }
 
 // menu
-.menu-bakery {
+
+.products {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  .must-try-bakery {
+    display: flex;
+    flex-direction: row;
+    float: left;
+    width: 800px !important;
+
+    #specialty-bakery {
+      .spe {
+        width: 600px;
+        padding-top: 15px;
+        font-family: 'Helvetica Neue';
+        font-weight: 400 ;
+
+      }
+    }
+  }
+
   p {
     font-family: 'Anton';
     padding-top: 20px;
+    width: 200px;
   }
 
-}
 
+}
 
 
 .create-tag {
