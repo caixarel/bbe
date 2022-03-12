@@ -10,7 +10,7 @@
         <%= render 'list', bakeries: Bakery.all.sort_by {|bakery| bakery.id} %>
 
       <%else %>
-      <%= render 'list', bakeries: Bakery.all.sort_by {|bakery| bakery.id} %>
+      <%= render 'list', bakeries: @bakeries ,pictures:@pictures %>
 
       <% end %>
 
