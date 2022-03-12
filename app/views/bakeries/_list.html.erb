@@ -1,7 +1,7 @@
 <div >
   <%unless @bakeries.empty? %>
 
-      <% @bakeries.each do |bakery| %>
+      <% Bakery.all.sort_by {|bakery| bakery.id}.each do |bakery| %>
         <div class="bakery-card fit shadow mb-3 bg-white rounded d-flex" data-refresh-list-target="list" data-lat=<%=bakery.latitude %> data-lng=<%=bakery.longitude %>>
           <% if bakery.pictures.attached? %>
             <%bakery.pictures.each do |picture| %>
@@ -41,7 +41,9 @@
                   <p style="color:red">Closed </p>
                 <%end %>
               </div>
-
+              <div>
+                <p class= 'ranking'><%= "##{bakery.rank.to_i + 1} IN BELGIUM" %></p>
+              </div>
               <div class="distance-p">
                 <%= link_to bakery_path(bakery) do %>
                   See bakery

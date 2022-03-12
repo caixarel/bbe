@@ -49,4 +49,17 @@ addresses[0..4].each_with_index do |address ,index|
     product = Product.create(name:products.sample ,speciality:false,bakery: bakery)
   end
     speciality = Product.create(name:specialities.sample ,speciality:true, bakery: bakery)
+    unless bakery.reviews.empty?
+      sum = 0
+      bakery.reviews.each { |review| sum += review.rating }
+      average_rating = sum.to_f / bakery.reviews.count
+      bakery.average_rating = average_rating
+      bakery.save!
+    end
 end
+ bakeries = Bakery.all.select {|bakery| bakery.average_rating != nil }
+      ranked_bakeries = bakeries.sort_by {|bakery| bakery.average_rating}.reverse
+      ranked_bakeries.each_with_index do |bakery,index|
+        bakery.rank = index
+        bakery.save!
+      end
