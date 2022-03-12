@@ -23,7 +23,7 @@ const initMapbox = () => {
       accessToken: mapElement.dataset.mapboxApiKey,
       unit: 'metric',
       profile: 'mapbox/cycling',
-      controls:{instructions:false},
+      // controls:{instructions:false},
       interactive: false
     });
 
