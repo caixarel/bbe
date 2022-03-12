@@ -7,7 +7,7 @@
     <!-- Below is the left column which contains all the pets -->
     <div class="bakery-cards col-6 p-3"  data-index-page-target='list'>
       <% unless @page.nil? %>
-        <%= render 'list', bakeries: Bakery.all.sort_by {|bakery| bakery.id} %>
+        <%= render 'list', bakeries: @bakeries %>
 
       <%else %>
       <%= render 'list', bakeries: @bakeries ,pictures:@pictures %>

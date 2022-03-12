@@ -32,7 +32,7 @@ class BakeriesController < ApplicationController
       end
     end
 
-    @bakeries = @bakeries[((@page.to_i-1)*5)..((@page.to_i * 5) - 1)]
+    @bakeries = @bakeries[((@page.to_i-1)*5)..((@page.to_i * 5) - 1)].sort_by {|bakery| bakery.id}
   end
 
   def update_favourites

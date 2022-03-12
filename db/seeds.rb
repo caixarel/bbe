@@ -33,7 +33,7 @@ puts 'Creating bakeries'
 open_hour = Time.new(2002, 10, 31, 8, 0, 0)
 close_hour = Time.new(2002, 10, 31, 19, 0, 0)
 
-addresses[0..4].each_with_index do |address ,index|
+addresses.each_with_index do |address ,index|
 
   pic = URI.open(pictures.sample)
   tlm = "+32 4#{rand(0..9)}#{rand(0..9)}#{rand(0..9)}#{rand(0..9)}#{rand(0..9)}#{rand(0..9)}#{rand(0..9)}#{rand(0..9)}"
