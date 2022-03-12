@@ -17,7 +17,6 @@ class BakeriesController < ApplicationController
       end
     else
       @bakeries = Bakery.all
-
       @bakeries_count = @bakeries.length
       @query = ''
     end

@@ -23,8 +23,10 @@
 
             <div id="location" class='pt-2'>
               <ul style="list-style: none;">
-                <li>Locals</li>
-                <li>Visitors</li>
+              <% @visitors = Review.where(bakery: bakery).where(visitor: true)%>
+    <%@locals = Review.where(bakery: bakery).where(visitor: false) %>
+                <li>Visitors: <%= @visitors.empty? ? 0 : @visitors.length%>/<%= bakery.reviews.count unless bakery.reviews.empty? %></li>
+                <li>Locals: <%= @locals.empty? ? 0 : @locals.length%>/<%= bakery.reviews.count unless bakery.reviews.empty?%></li>
               </ul>
             </div>
 
@@ -42,7 +44,7 @@
 
               <div class="distance-p">
                 <%= link_to bakery_path(bakery) do %>
-                  5 min walk
+                  See bakery
                   <i class="fas fa-arrow-right"></i>
                 <% end %>
               </div>
