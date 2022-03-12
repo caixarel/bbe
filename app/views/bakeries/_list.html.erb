@@ -8,7 +8,7 @@
               <%= cl_image_tag picture.key, height: 200, width: 158, crop: :fill %>
             <%end %>
           <%else %>
-            <img id="imgProd1" src="https://picsum.photos/id/237/158/150">
+            <img id="imgProd1" src=<%= @pictures.sample %> width="158" height="200">
           <% end %>
 
           <div class="bakery-card-infos p-2">
@@ -23,8 +23,10 @@
 
             <div id="location" class='pt-2'>
               <ul style="list-style: none;">
-                <li>Locals</li>
-                <li>Visitors</li>
+              <% @visitors = Review.where(bakery: bakery).where(visitor: true)%>
+    <%@locals = Review.where(bakery: bakery).where(visitor: false) %>
+                <li>Visitors: <%= @visitors.empty? ? 0 : @visitors.length%>/<%= bakery.reviews.count unless bakery.reviews.empty? %></li>
+                <li>Locals: <%= @locals.empty? ? 0 : @locals.length%>/<%= bakery.reviews.count unless bakery.reviews.empty?%></li>
               </ul>
             </div>
 
@@ -44,7 +46,7 @@
               </div>
               <div class="distance-p">
                 <%= link_to bakery_path(bakery) do %>
-                  5 min walk
+                  See bakery
                   <i class="fas fa-arrow-right"></i>
                 <% end %>
               </div>
