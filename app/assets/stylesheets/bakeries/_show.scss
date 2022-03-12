@@ -1,10 +1,7 @@
 .show-container{
-
   margin: 1rem;
 }
-.page-container {
-  min-height: 50vh;
-}
+
 .bakery-description{
   width: 93%;
   background-color: white;
@@ -17,13 +14,16 @@
   display: flex;
   flex-direction: column;
 }
+
 .content{
   width: 80%;
 }
+
 .pictures{
   width: 100%;
   margin-left: 20px;
 }
+
 .show_bakery_name h4{
   font-family: Anton;
 font-style: normal;
@@ -34,29 +34,34 @@ letter-spacing: 0.065em;
 
 color: #000000;
 }
+
 #text{
   justify-content: space-between;
 }
-.hour_icon{
+
+.hour_icon {
   text-align: center;
   background: rgba(255, 153, 121, 0.1);
 border: 1px solid #000000;
 box-sizing: border-box;
 border-radius: 15px;
 }
-.picture{
+
+.picture {
   border-radius: 15px;
 }
-.show{
+
+.show {
   font-family: Helvetica Neue;
-font-style: normal;
-font-weight: 300;
-font-size: 18px;
-line-height: 22px;
-/* identical to box height */
-color: #8C8C8C;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 22px;
+  /* identical to box height */
+  color: #8C8C8C;
 }
-.show-tag{
+
+.show-tag {
   background: #fff5f2;
   opacity: 80%;
   border: 1px solid rgba(0, 0, 0, 0.19);
@@ -74,6 +79,7 @@ color: #8C8C8C;
     color: #000000;
   }
 }
+
 .show-tag:hover{
   background: rgba(255, 153, 121, 0.8);
   font-weight: 450;
@@ -81,12 +87,12 @@ color: #8C8C8C;
 
 
 .selection {
-  border: none;
-  .btn {
+  border: 3px solid rgba(224, 34, 1, 0.959);;
 
+  .btn {
   text-transform: uppercase;
   font-weight: 500;
-  color: rgba(194, 31, 3, 0.959);
+  color: rgba(0, 0, 0, 0.959);
   font-family: 'Anton';
   font-size: 24px;
   }
@@ -102,7 +108,13 @@ color: #8C8C8C;
   display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+
+    p {
+      margin-bottom: 30px;
+    }
 }
+
+
 
 .style-btn-form {
   font-style: normal;
@@ -206,17 +218,121 @@ color: #8C8C8C;
 .picture-bakery {
   margin: 10px 10px 0px 30px;
   img {
-    height: 300px;
+    height: 500px !important;
     border-radius: 15px;
+    width: 500px !important;
+    object-fit: contain;
   }
 
+  .active {
+    width: 500px;
+  }
 }
-
+.active, .btn-page:hover {
+  background-color: transparent;
+  width: 500px;
+  color: white;
+}
 
 // menu
 .menu-bakery {
   p {
     font-family: 'Anton';
+    padding-top: 20px;
   }
 
+}
+
+
+
+.create-tag {
+
+  .tag-form {
+
+    .string {
+      font-family: 'Helvetica';
+      font-size: 14px;
+      color: rgba(0, 0, 0, 0.411);
+      font-weight: 600;
+    }
+
+    .form-control {
+      width: 130px;
+      margin-left: 14px;
+      border:rgba(0, 0, 0, 0.904);
+      background-color: rgba(0, 0, 0, 0.151);
+      border-radius: 10px;
+      box-shadow: none;
+    }
+
+    .form-group {
+      margin-bottom: 10px;
+    }
+
+    .button_with_image_save {
+    background: url(check.svg);
+    height: 16px;
+    border: none;
+    margin-left: 130px;
+
+
+}
+
+    .button_with_image_save:hover {
+      opacity: 0.5;
+    }
+
+  margin-bottom: 25px;
+  padding: 5px;
+
+  }
+
+  .new-tag-btn {
+    border: none;
+    background: transparent;
+  }
+  .new-tag-btn:hover {
+    color: rgba(0, 0, 0, 0.411)
+  }
+
+  .tag-form {
+    .new-tag-form {
+      font-family: 'Helvetica';
+    }
+  }
+}
+
+
+.carousel-item .active .carousel-item-left {
+  margin-right: 0px !important;
+}
+.active {
+  width:0px;
+}
+.carousel .carousel-item {
+    width: 100%; /*slider width*/
+    max-height: 400px; /*slider height*/
+    //transition: transform 10s ease-in-out!important;
+
+    .carousel-item-left {
+      margin-right: 0px !important;
+    }
+}
+.carousel .carousel-item img {
+    width: 100%; /*img width*/
+    object-fit: contain;
+    overflow: hidden;
+    object-position: center;
+}
+@media (max-width: 767px) {
+    .block {
+        margin-left: -20px;
+        margin-right: -20px;
+    }
+}
+
+
+#carouselExampleControls {
+  margin: 0 auto;
+  max-width: 500px;
 }

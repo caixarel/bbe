@@ -41,6 +41,7 @@ body {
 
 .find-text {
 
+
   font-family: Helvetica Neue;
   font-style: thin;
   font-weight: lighter;
@@ -57,11 +58,21 @@ body {
 .search-form-control {
   display: flex;
   justify-content: center;
+  align-items: center;
+  align-content: center;
+  align-self: center;
+
   margin-top: 1%;
   margin-bottom: 10%;
 
 }
-
+.search {
+   display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  align-self: center;
+}
 
 .search-form-control .btn {
   border-radius: 50%;
