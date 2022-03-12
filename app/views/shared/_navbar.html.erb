@@ -1,5 +1,9 @@
+<% if params[:controller] == "pages" && params[:action] == "home" %>
+  <div class="navbar navbar-expand-sm navbar-light navbar-lewagon home-navbar">
 
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<% else%>
+  <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<% end %>
 
   <% unless current_page?(root_path) %>
 
@@ -34,7 +38,7 @@
 
   <div class="dropdown">
 
-	  <div class="btn-menu dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+	  <div class="btn-menu dropdown-toggle" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-expanded="false">
       <%= image_tag "menu_icon.png", class:"menu-bbe" %>
     </div>
 
