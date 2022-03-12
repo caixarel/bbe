@@ -154,7 +154,7 @@ border-radius: 15px;
 }
 .rating-review{
   margin-left: 50px;
-  color: yellow;
+  color: rgba(255, 130, 47, 0.925);
 }
 .title-review{
   margin-left: 10px;
@@ -198,7 +198,7 @@ border-radius: 15px;
     letter-spacing: 0.045em;
   }
   .fas {
-    color: yellow;
+    color: rgb(255, 136, 0);
 
   }
 }
@@ -242,19 +242,39 @@ border-radius: 15px;
   flex-direction: column;
   width: 100%;
 
+  .menu-bakery {
+    display: flex;
+    flex-direction: row;
+    float: left;
+    width: 800px !important;
+    padding-right: 0px !important;
+
+    #me {
+      text-transform: capitalize;
+    }
+
+    p {
+      width: 100px;
+    }
+  }
+
   .must-try-bakery {
     display: flex;
     flex-direction: row;
     float: left;
     width: 800px !important;
+    padding-right: 0px !important;
 
     #specialty-bakery {
+      margin-left: 0px;
       .spe {
         width: 600px;
         padding-top: 15px;
         font-family: 'Helvetica Neue';
-        font-weight: 400 ;
-
+        font-weight: 300;
+        color: #8C8C8C;
+        font-size: 18px;
+        text-transform: capitalize;
       }
     }
   }
@@ -262,7 +282,9 @@ border-radius: 15px;
   p {
     font-family: 'Anton';
     padding-top: 20px;
-    width: 200px;
+
+   // width: 200px;
+    padding-right: 0px;
   }
 
 
@@ -314,9 +336,15 @@ border-radius: 15px;
   .new-tag-btn {
     border: none;
     background: transparent;
+
+    font-family: 'helvetica Neue';
+    font-weight: 300;
+    font-size: 15px;
+    color: #777777;
+
   }
   .new-tag-btn:hover {
-    color: rgba(0, 0, 0, 0.411)
+    color: #f6a67c
   }
 
   .tag-form {
