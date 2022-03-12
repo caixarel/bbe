@@ -8,7 +8,7 @@
               <%= cl_image_tag picture.key, height: 200, width: 158, crop: :fill %>
             <%end %>
           <%else %>
-            <img id="imgProd1" src="https://picsum.photos/id/237/158/150">
+            <img id="imgProd1" src=<%= @pictures.sample %> width="158" height="200">
           <% end %>
 
           <div class="bakery-card-infos p-2">

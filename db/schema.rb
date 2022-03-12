@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_03_213728) do
+ActiveRecord::Schema.define(version: 2022_03_10_184122) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(version: 2022_03_03_213728) do
     t.datetime "updated_at", precision: 6, null: false
     t.float "latitude"
     t.float "longitude"
+    t.integer "rank"
     t.index ["user_id"], name: "index_bakeries_on_user_id"
   end
 
@@ -97,7 +98,9 @@ ActiveRecord::Schema.define(version: 2022_03_03_213728) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "votes"
+    t.bigint "user_id"
     t.index ["bakery_id"], name: "index_tags_on_bakery_id"
+    t.index ["user_id"], name: "index_tags_on_user_id"
   end
 
   create_table "user_tags", force: :cascade do |t|
