@@ -62,7 +62,7 @@
 
     <div class='average-rating'>
       <p class='visitors'>Visitors: <%= @visitors.empty? ? 0 : @visitors.length%>/<%= @bakery.reviews.count unless @bakery.reviews.empty? %></p>
-      <p class='visitors'>Locals: <%= @locals.empty? ? 0 : @locals.length%>/<%= @bakery.reviews.count unless @bakery.reviews.empty?%></p>
+      <p class='locals'>Locals: <%= @locals.empty? ? 0 : @locals.length%>/<%= @bakery.reviews.count unless @bakery.reviews.empty?%></p>
       <% if @average_rating %>
         <p class='average'>Average rating: <%@average_rating.to_i.times do %>
           <i class="fas fa-star"></i>
@@ -97,7 +97,7 @@
                 <% if (Time.now.hour > @bakery.opening_hour.hour && Time.now.hour < @bakery.closing_hour.hour)%>
                   <p style="color:green ; text-align:center">Open now</p>
                 <%else %>
-                  <p style="color:red">Closed now</p>
+                  <p class="open-closed" style="color:red">Closed now</p>
                 <%end %>
               </div>
               <div>
@@ -179,7 +179,7 @@
             <span class="circle" aria-hidden="true">
               <span class="icon arrow"></span>
             </span>
-            <span class="button-text">GO THERE</span>
+            <a href='#map' class="button-text">GO THERE</a>
           </button>
         </div>
     </div>
@@ -189,7 +189,7 @@
 </div></div></div>
 
 <div class='show-container show-reviews'data-controller="create-reviews">
-  <div class='container'>
+  <div class='container-new-tag'>
     <div >
     <button class='btn show-tag'data-action="click->create-reviews#displayForm"><i class="fas fa-pen fa-xs ml-2" ></i>
       create a review</button>
@@ -224,7 +224,7 @@
   <!-- Below is the right column with the map -->
 
     <div class="map-show mb-3 " id="map"
-        style=" height: 92vh; width:90vw;"
+        style=" height: 92vh; width:93.5vw;"
         data-markers="<%= @markers.to_json %>"
         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>

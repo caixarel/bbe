@@ -2,14 +2,19 @@
   margin: 1rem;
 }
 
+
+
+
 .bakery-description{
   width: 93%;
   background-color: white;
   //margin: 10px 10px 0px 30px;
+  margin-top: 10px;
+  margin-left: 20px;
   background: rgba(255, 255, 255, 0.97);
   border: 1px solid rgba(0, 0, 0, 0.19);
   box-sizing: border-box;
-  border-radius: 15px;
+  //border-radius: 15px;
   padding: 30px;
   display: flex;
   flex-direction: column;
@@ -42,10 +47,16 @@ color: #000000;
 .hour_icon {
   text-align: center;
   background: rgba(255, 153, 121, 0.1);
-border: 1px solid #000000;
-box-sizing: border-box;
-border-radius: 15px;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  border-radius: 15px;
 }
+
+.open-closed {
+  text-transform: uppercase;
+  padding-bottom: 40px;
+}
+
 
 .picture {
   border-radius: 15px;
@@ -114,7 +125,9 @@ border-radius: 15px;
       line-height: 2rem;
     }
 }
-
+.container-new-tag {
+  margin-left: 30px
+}
 
 
 .style-btn-form {
@@ -147,20 +160,26 @@ border-radius: 15px;
   background: #fff5f2;
 }
 .display-reviews{
-  margin-left: 10px;
-  border-radius: 15px;
+  margin-left: 30px;
+  margin-right: 30px;
+ // border-radius: 15px;
   padding: 20px;
-  margin-top:10px;
+  margin-top:20px;
 }
 .rating-review{
   margin-left: 50px;
   color: rgba(255, 130, 47, 0.925);
 }
 .title-review{
-  margin-left: 10px;
+  margin-left: 20px;
+  font-family: 'Anton';
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
 }
 .content-review{
-  margin-left: 10px;
+  margin-left: 20px;
+  font-family: 'helvetica neue';
+  font-weight: 300;
 }
 .review-description{
       width: 100%;
@@ -175,43 +194,49 @@ border-radius: 15px;
 }
 .average-rating{
   background-color: white;
-  border-radius: 15px;
+  //border-radius: 15px;
   padding: 20px;
   height: 200px;
-  margin: 40px 10px 0px 30px;
+  margin: 30px 10px 0px 30px;
 
   p {
     font-family: 'Anton';
     font-weight: 200;
-    font-size: 24px;
+    font-size: 18px;
     text-transform: uppercase;
+    color: black;
   }
+
+  .locals {
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+
+  .visitors {
+    padding-top: 10px;
+  }
+
   .average{
-       border: #000000;
-    font-family: Helvetica Neue;
-    font-style: normal;
-    font-weight: 200;
-    font-size: 16px;
+    border: #000000;
+    font-family: 'anton';
+    font-weight: 400;
+    font-size: 18px;
     line-height: 29px;
     /* identical to box height */
 
     letter-spacing: 0.045em;
+
+    p {
+      margin-bottom: 0%;
+    }
   }
   .fas {
-    color: rgb(255, 136, 0);
+    color: #ff8b41;
 
   }
 }
-.visitors{
 
-  font-family: Helvetica Neue;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 28px;
-  line-height: 33px;
-  letter-spacing: 0.04em;
-  color: #FF7043;
-}
+
 .create-tag{
   margin: 10px 0px 20px;
 }
@@ -220,7 +245,7 @@ border-radius: 15px;
   margin: 10px 10px 0px 30px;
   img {
     height: 500px !important;
-    border-radius: 15px;
+    // border-radius: 15px;
     width: 500px !important;
     object-fit: contain;
   }
@@ -299,14 +324,14 @@ border-radius: 15px;
       font-family: 'Helvetica';
       font-size: 14px;
       color: rgba(0, 0, 0, 0.411);
-      font-weight: 600;
+      font-weight: 300;
     }
 
     .form-control {
       width: 130px;
       margin-left: 14px;
       border:rgba(0, 0, 0, 0.904);
-      background-color: rgba(0, 0, 0, 0.151);
+      background-color: #fff2ed;
       border-radius: 10px;
       box-shadow: none;
     }
@@ -397,7 +422,7 @@ border-radius: 15px;
 
 $bg: #F3F8FA;
 $white: #fff;
-$black: #FFA37D;
+$black: #ff975b;
 @mixin transition($property: all, $duration: 0.45s, $ease: cubic-bezier(0.65,0,.076,1)) {
   transition: $property $duration $ease;
 }
@@ -493,6 +518,9 @@ $black: #FFA37D;
     .button-text {
       color: $white;
       padding-right: 10px;
+    }
+     .button-text:hover {
+      text-decoration: none;
     }
   }
 }
