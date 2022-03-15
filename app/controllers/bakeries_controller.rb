@@ -20,6 +20,7 @@ class BakeriesController < ApplicationController
       @bakeries = Bakery.all
       @bakeries_count = @bakeries.length
       @query = ''
+
     end
     unless @bakeries.empty?
       @markers = @bakeries.geocoded.map do |bakery|
@@ -65,21 +66,8 @@ class BakeriesController < ApplicationController
         info_window: render_to_string(partial: "info_window", locals: { bakery: @bakery })
       }
     ]
-
-
-    # unless @bakery.reviews.empty?
-    #   @bakery.reviews.each { |review| sum += review.rating }
-    #   @average_rating = sum.to_f / @bakery.reviews.count
-    #   @bakery.average_rating = @average_rating
-    #   @bakery.save!
-    # end
         @products = Product.where(bakery: @bakery).where(speciality: false)
         @speciality = Product.where(bakery: @bakery).where(speciality: true)
-      # @bakeries = Bakery.all.select {|bakery| bakery.rank != nil }
-      # @ranked_bakeries = @bakeries.sort_by {|bakery| bakery.rank}.reverse
-      # @position = @ranked_bakeries.index{|x| x.id == @bakery.id}
-      # @bakery.rank = @position
-      # @bakery.save!
 
   end
 
