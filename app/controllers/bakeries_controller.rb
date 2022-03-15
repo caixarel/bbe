@@ -67,12 +67,12 @@ class BakeriesController < ApplicationController
     ]
 
 
-    # unless @bakery.reviews.empty?
-    #   @bakery.reviews.each { |review| sum += review.rating }
-    #   @average_rating = sum.to_f / @bakery.reviews.count
-    #   @bakery.average_rating = @average_rating
-    #   @bakery.save!
-    # end
+    unless @bakery.reviews.empty?
+      @bakery.reviews.each { |review| sum += review.rating }
+      @average_rating = sum.to_f / @bakery.reviews.count
+      @bakery.average_rating = @average_rating
+      @bakery.save!
+    end
         @products = Product.where(bakery: @bakery).where(speciality: false)
         @speciality = Product.where(bakery: @bakery).where(speciality: true)
       # @bakeries = Bakery.all.select {|bakery| bakery.rank != nil }
