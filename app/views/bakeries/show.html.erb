@@ -178,7 +178,7 @@
 <div class='show-container show-reviews'data-controller="create-reviews">
   <div class='container-new-tag'>
     <div >
-    <button class='btn show-tag'data-action="click->create-reviews#displayForm"><i class="fas fa-pen fa-xs ml-2" ></i>
+    <button class='new-review show-tag'data-action="click->create-reviews#displayForm"><i class="fas fa-pen fa-xs ml-2" ></i>
       create a review</button>
       <%= simple_form_for [@bakery,@review], method: :post, html: { class:'d-none',style:"width: 70%; margin: auto;", data: { create_reviews_target: 'form', action: 'submit->create-reviews#create'  } } do |f| %>
        <%= f.input :content %>

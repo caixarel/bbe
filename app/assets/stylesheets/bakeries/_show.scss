@@ -422,7 +422,7 @@ color: #000000;
 .div-btn-go {
 $bg: #F3F8FA;
 $white: #fff;
-$black: #ff975b;
+$black: #000000d5;
 @mixin transition($property: all, $duration: 0.45s, $ease: cubic-bezier(0.65,0,.076,1)) {
   transition: $property $duration $ease;
 }
@@ -542,4 +542,23 @@ $black: #ff975b;
       }
   }
 }
+}
+
+
+
+
+
+
+.new-review {
+    border: none;
+    background: transparent;
+    font-family: 'helvetica Neue';
+    font-weight: 400;
+    font-size: 15px;
+    color: #000000da;
+
+    &:hover {
+      text-decoration: none;
+      background: transparent;
+    }
 }
