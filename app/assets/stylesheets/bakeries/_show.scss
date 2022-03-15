@@ -2,14 +2,19 @@
   margin: 1rem;
 }
 
+
+
+
 .bakery-description{
   width: 93%;
   background-color: white;
-  margin: 10px 10px 0px 30px;
+  //margin: 10px 10px 0px 30px;
+  margin-top: 10px;
+  margin-left: 20px;
   background: rgba(255, 255, 255, 0.97);
   border: 1px solid rgba(0, 0, 0, 0.19);
   box-sizing: border-box;
-  border-radius: 15px;
+  //border-radius: 15px;
   padding: 30px;
   display: flex;
   flex-direction: column;
@@ -42,10 +47,16 @@ color: #000000;
 .hour_icon {
   text-align: center;
   background: rgba(255, 153, 121, 0.1);
-border: 1px solid #000000;
-box-sizing: border-box;
-border-radius: 15px;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  border-radius: 15px;
 }
+
+.open-closed {
+  text-transform: uppercase;
+  padding-bottom: 40px;
+}
+
 
 .picture {
   border-radius: 15px;
@@ -111,9 +122,12 @@ border-radius: 15px;
 
     p {
       margin-bottom: 30px;
+      line-height: 2rem;
     }
 }
-
+.container-new-tag {
+  margin-left: 30px
+}
 
 
 .style-btn-form {
@@ -146,20 +160,26 @@ border-radius: 15px;
   background: #fff5f2;
 }
 .display-reviews{
-  margin-left: 10px;
-  border-radius: 15px;
+  margin-left: 30px;
+  margin-right: 30px;
+ // border-radius: 15px;
   padding: 20px;
-  margin-top:10px;
+  margin-top:20px;
 }
 .rating-review{
   margin-left: 50px;
-  color: yellow;
+  color: rgba(255, 130, 47, 0.925);
 }
 .title-review{
-  margin-left: 10px;
+  margin-left: 20px;
+  font-family: 'Anton';
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
 }
 .content-review{
-  margin-left: 10px;
+  margin-left: 20px;
+  font-family: 'helvetica neue';
+  font-weight: 300;
 }
 .review-description{
       width: 100%;
@@ -174,43 +194,49 @@ border-radius: 15px;
 }
 .average-rating{
   background-color: white;
-  border-radius: 15px;
+  //border-radius: 15px;
   padding: 20px;
   height: 200px;
-  margin: 40px 10px 0px 30px;
+  margin: 30px 10px 0px 30px;
 
   p {
     font-family: 'Anton';
     font-weight: 200;
-    font-size: 24px;
+    font-size: 18px;
     text-transform: uppercase;
+    color: black;
   }
+
+  .locals {
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+
+  .visitors {
+    padding-top: 10px;
+  }
+
   .average{
-       border: #000000;
-    font-family: Helvetica Neue;
-    font-style: normal;
-    font-weight: 200;
-    font-size: 16px;
+    border: #000000;
+    font-family: 'anton';
+    font-weight: 400;
+    font-size: 18px;
     line-height: 29px;
     /* identical to box height */
 
     letter-spacing: 0.045em;
+
+    p {
+      margin-bottom: 0%;
+    }
   }
-  .fas{
-    color: yellow;
+  .fas {
+    color: #ff8b41;
 
   }
 }
-.visitors{
 
-  font-family: Helvetica Neue;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 28px;
-  line-height: 33px;
-  letter-spacing: 0.04em;
-  color: #FF7043;
-}
+
 .create-tag{
   margin: 10px 0px 20px;
 }
@@ -219,7 +245,7 @@ border-radius: 15px;
   margin: 10px 10px 0px 30px;
   img {
     height: 500px !important;
-    border-radius: 15px;
+    // border-radius: 15px;
     width: 500px !important;
     object-fit: contain;
   }
@@ -235,14 +261,59 @@ border-radius: 15px;
 }
 
 // menu
-.menu-bakery {
+
+.products {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  .menu-bakery {
+    display: flex;
+    flex-direction: row;
+    float: left;
+    width: 800px !important;
+    padding-right: 0px !important;
+
+    #me {
+      text-transform: capitalize;
+    }
+
+    p {
+      width: 100px;
+    }
+  }
+
+  .must-try-bakery {
+    display: flex;
+    flex-direction: row;
+    float: left;
+    width: 800px !important;
+    padding-right: 0px !important;
+
+    #specialty-bakery {
+      margin-left: 0px;
+      .spe {
+        width: 600px;
+        padding-top: 15px;
+        font-family: 'Helvetica Neue';
+        font-weight: 300;
+        color: #8C8C8C;
+        font-size: 18px;
+        text-transform: capitalize;
+      }
+    }
+  }
+
   p {
     font-family: 'Anton';
     padding-top: 20px;
+
+   // width: 200px;
+    padding-right: 0px;
   }
 
-}
 
+}
 
 
 .create-tag {
@@ -253,14 +324,14 @@ border-radius: 15px;
       font-family: 'Helvetica';
       font-size: 14px;
       color: rgba(0, 0, 0, 0.411);
-      font-weight: 600;
+      font-weight: 300;
     }
 
     .form-control {
       width: 130px;
       margin-left: 14px;
       border:rgba(0, 0, 0, 0.904);
-      background-color: rgba(0, 0, 0, 0.151);
+      background-color: #fff2ed;
       border-radius: 10px;
       box-shadow: none;
     }
@@ -290,9 +361,15 @@ border-radius: 15px;
   .new-tag-btn {
     border: none;
     background: transparent;
+
+    font-family: 'helvetica Neue';
+    font-weight: 300;
+    font-size: 15px;
+    color: #777777;
+
   }
   .new-tag-btn:hover {
-    color: rgba(0, 0, 0, 0.411)
+    color: #f6a67c
   }
 
   .tag-form {
@@ -337,6 +414,133 @@ border-radius: 15px;
   max-width: 500px;
 }
 
+
+.div-btn-go {
+
+$bg: #F3F8FA;
+$white: #fff;
+$black: #ff975b;
+@mixin transition($property: all, $duration: 0.45s, $ease: cubic-bezier(0.65,0,.076,1)) {
+  transition: $property $duration $ease;
+}
+* {
+  box-sizing: border-box;
+  &::before, &::after {
+    box-sizing: border-box;
+  }
+}
+
+
+
+.learn-more {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  outline: none;
+  border: 0;
+  vertical-align: middle;
+  text-decoration: none;
+  background: transparent;
+  padding: 0;
+  font-size: 18px;
+  font-family: "Anton";
+  letter-spacing: 2px;
+  &.learn-more {
+    width: 12rem;
+    height: auto;
+    .circle {
+      @include transition(all, 0.45s, cubic-bezier(0.65,0,.076,1));
+      position: relative;
+      display: block;
+      //margin: 0;
+       margin-right: 20px;
+      width: 3rem;
+      height: 3rem;
+      background: $black;
+      border-radius: 1.625rem;
+      .icon {
+        @include transition(all, 0.45s, cubic-bezier(0.65,0,.076,1));
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        background: $white;
+        &.arrow {
+          @include transition(all, 0.45s, cubic-bezier(0.65,0,.076,1));
+          left: 0.625rem;
+          width: 1.125rem;
+          height: 0.125rem;
+          background: none;
+          &::before {
+            position: absolute;
+            content: "";
+            top: -0.25rem;
+            right: 0.0625rem;
+            width: 0.625rem;
+            height: 0.625rem;
+            border-top: 0.125rem solid #fff;
+            border-right: 0.125rem solid #fff;
+            transform: rotate(45deg);
+          }
+        }
+      }
+    }
+    .button-text {
+      @include transition(all, 0.45s, cubic-bezier(0.65,0,.076,1));
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 0.75rem 0;
+      margin: 0 0 0 1.85rem;
+      margin-left: 45px;
+      color: $black;
+      font-weight: 700;
+      line-height: 1.6;
+      text-align: center;
+      text-transform: uppercase;
+    }
+  }
+  &:hover {
+    .circle {
+      width: 100%;
+      .icon {
+        &.arrow {
+        background: $white;
+        transform: translate(1rem, 0);
+        }
+      }
+    }
+    .button-text {
+      color: $white;
+      padding-right: 10px;
+    }
+     .button-text:hover {
+      text-decoration: none;
+    }
+  }
+}
+@supports (display: grid) {
+  //body {
+  //  display: grid;
+  //grid-template-columns: repeat(4, 1fr);
+  //grid-gap: 0.625rem;
+ // grid-template-areas: “. main main .” “. main main .“;
+ //}
+  .div-btn-go {
+   // grid-area: main;
+  //  align-self: center;
+    //justify-self: center;
+    display:flex;
+    align-items: flex-end;
+    button {
+      .lean-more {
+        width: 13rem !important;
+      }
+    }
+  }
+}
 .ranking {
   font-size: 18px;
 }

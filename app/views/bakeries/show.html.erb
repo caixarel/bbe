@@ -48,9 +48,9 @@
 
     <div class='average-rating'>
       <p class='visitors'>Visitors: <%= @visitors.empty? ? 0 : @visitors.length%>/<%= @bakery.reviews.count unless @bakery.reviews.empty? %></p>
-      <p class='visitors'>Locals: <%= @locals.empty? ? 0 : @locals.length%>/<%= @bakery.reviews.count unless @bakery.reviews.empty?%></p>
-      <% if @bakery.average_rating %>
-        <p class='average'>Average rating: <%@bakery.average_rating.to_i.times do %>
+      <p class='locals'>Locals: <%= @locals.empty? ? 0 : @locals.length%>/<%= @bakery.reviews.count unless @bakery.reviews.empty?%></p>
+      <% if @average_rating %>
+        <p class='average'>Average rating: <%@average_rating.to_i.times do %>
           <i class="fas fa-star"></i>
         <%end %></p>
       <%end %>
@@ -83,7 +83,7 @@
                 <% if (Time.now.hour > @bakery.opening_hour.hour && Time.now.hour < @bakery.closing_hour.hour)%>
                   <p style="color:green ; text-align:center">Open now</p>
                 <%else %>
-                  <p style="color:red">Closed now</p>
+                  <p class="open-closed" style="color:red">Closed now</p>
                 <%end %>
               </div>
               <div>
@@ -136,34 +136,37 @@
         </div>
 
       </div>
-      <div class='d-flex' >
-        <div class="menu-bakery" style="width:200px;">
+      <div class='d-flex products' >
+        <div class="must-try-bakery" style="width:200px;">
           <p style="font-size: 25px;padding-right:10px">MUST TRY!</p>
+
+          <div id="specialty-bakery" style='margin-top:10px; margin-left:20px;'>
+            <% @speciality.each do |special|%>
+                <div class='spe' style="padding-right:20px" ><% unless @speciality.empty? %><%=  special.name %></div>
+              <%end  %>
+            <%end %>
+          </div>
+        </div>
+        <div class="menu-bakery" style="width:200px;">
           <p style="font-size: 25px;padding-right:10px">MENU</p>
 
-        </div>
-        <div>
-          <div style='margin-top:10px; margin-left:20px;'>
-            <% @speciality.each do |special|%>
-                <span class='show' style="padding-right:20px"><%unless @speciality.empty? %><%=  special.name%></span>
-              <%end  %>
-              <%end %>
-
-          </div>
-          <div style='margin-top:30px; margin-left:20px;'>
-          <%unless @products.empty? %>
+          <div id="me" style='margin-top:30px; margin-left:20px;'>
+            <%unless @products.empty? %>
               <% @products.each do |product|%>
                 <span class='show ml-2' style="padding-right:20px"><%=  product.name%></span>
               <%end  %>
-              <%end %>
-
+            <%end %>
           </div>
         </div>
-
       </div>
-        <div class='div-btn-go'>
-        <div class= 'selection show-tag'><a href='#map' class='btn'>Take me there</a></div>
 
+        <div class="div-btn-go">
+          <button class="learn-more">
+            <span class="circle" aria-hidden="true">
+              <span class="icon arrow"></span>
+            </span>
+            <a href='#map' class="button-text">GO THERE</a>
+          </button>
         </div>
     </div>
 
@@ -172,7 +175,7 @@
 </div></div></div>
 
 <div class='show-container show-reviews'data-controller="create-reviews">
-  <div class='container'>
+  <div class='container-new-tag'>
     <div >
     <button class='btn show-tag'data-action="click->create-reviews#displayForm"><i class="fas fa-pen fa-xs ml-2" ></i>
       create a review</button>
@@ -207,7 +210,7 @@
   <!-- Below is the right column with the map -->
 
     <div class="map-show mb-3 " id="map"
-        style=" height: 92vh; width:90vw;"
+        style=" height: 92vh; width:93.5vw;"
         data-markers="<%= @markers.to_json %>"
         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
