@@ -112,11 +112,16 @@
     color: black;
   }
 
-  li:hover {
-    background: rgba(0, 0, 0, 0.25)
+  li a:hover {
+    color: rgba(0, 0, 0, 0.726);
+    text-decoration: none;
   }
 }
 
 #dropdownMenuButton1 {
   color: black;
+}
+
+.dropdown-divider {
+  border-top: 1px solid #00000067;
 }
