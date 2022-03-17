@@ -6,13 +6,13 @@
           <div class="carousel-inner" style="margin: 0px; padding: 0px; border: 0px; margin: none; ">
             <%unless @bakery.pictures.attached? %>
             <div class="carousel-item active">
-              <img class="d-block w-100" src="https://placeimg.com/500/500/animals" alt="First slide" style="min-width:100%; margin: none; padding: none;">
+              <img class="d-block w-100" src="https://placeimg.com/500/500/animals" alt="First slide" style=" margin: none; padding: none;">
             </div>
             <div class="carousel-item">
-              <img class="d-block w-100" src="https://placeimg.com/500/500/arch" alt="Second slide" style="min-width:100%; margin: none; padding: none;">
+              <img class="d-block w-100" src="https://placeimg.com/500/500/arch" alt="Second slide" style=" margin: none; padding: none;">
             </div>
             <div class="carousel-item">
-              <img class="d-block w-100" src="https://placeimg.com/500/500/nature" alt="Third slide" style="min-width:100%; margin: none; padding: none;">
+              <img class="d-block w-100" src="https://placeimg.com/500/500/nature" alt="Third slide" style=" margin: none; padding: none;">
             </div>
             <% else %>
             <div class="carousel-item active">
@@ -47,10 +47,13 @@
     </div>
 
     <div class='average-rating'>
-      <p class='visitors'>Visitors: <%= @visitors.empty? ? 0 : @visitors.length%>/<%= @bakery.reviews.count unless @bakery.reviews.empty? %></p>
-      <p class='locals'>Locals: <%= @locals.empty? ? 0 : @locals.length%>/<%= @bakery.reviews.count unless @bakery.reviews.empty?%></p>
+      <div class='d-flex total-visitors'>
+        <p class='visitors'>Visitors:   <%= @visitors.empty? ? 0 : @visitors.length %><%= image_tag "person-solid.svg", class:"person-icon" %></p>
+        <p class='total'>Total:   <%= @bakery.reviews.count unless @bakery.reviews.empty? %><%= image_tag "person-solid.svg", class:"person-icon" %> </p>
+      </div>
+      <p class='locals'>Locals: <%= @locals.empty? ? 0 : @locals.length%> <%= image_tag "person-solid.svg", class:"person-icon" %></p>
       <% if @average_rating %>
-        <p class='average'>Average rating: <%@average_rating.to_i.times do %>
+        <p class='average'>Average rating:   <%@average_rating.to_i.times do %>
           <i class="fas fa-star"></i>
         <%end %></p>
       <%end %>
@@ -74,10 +77,11 @@
         </div>
 
         <div class="ranking-div">
-          <p class= 'ranking'><%= "##{@bakery.rank.to_i + 1} IN BELGIUM" %></p>
+         <!-- <p class= 'ranking'><%= "##{@bakery.rank.to_i + 1} IN BELGIUM" %></p> -->
+           <p class= 'ranking'>#1 IN BELGIUM</p>
         </div>
 
-          <div class='p-2 d-flex justify-content-between'>
+          <div class='schedule p-2 d-flex justify-content-between'>
             <div>
               <div>
                 <% if (Time.now.hour > @bakery.opening_hour.hour && Time.now.hour < @bakery.closing_hour.hour)%>
@@ -177,10 +181,10 @@
 <div class='show-container show-reviews'data-controller="create-reviews">
   <div class='container-new-tag'>
     <div >
-    <button class='btn show-tag'data-action="click->create-reviews#displayForm"><i class="fas fa-pen fa-xs ml-2" ></i>
+    <button class='new-review show-tag'data-action="click->create-reviews#displayForm"><i class="fas fa-pen fa-xs ml-2" ></i>
       create a review</button>
-      <%= simple_form_for [@bakery,@review], method: :post, html: { class:'d-none',style:"width: 70%; margin: auto;", data: { create_reviews_target: 'form', action: 'submit->create-reviews#create'  } } do |f| %>
-       <%= f.input :content %>
+      <%= simple_form_for [@bakery,@review], method: :post, html: { class:'d-none',style:"width: 30%; margin: auto;", data: { create_reviews_target: 'form', action: 'submit->create-reviews#create'  } } do |f| %>
+       <%= f.input :content,  html: { class:'content', style:"width: 30%; margin: 0px;"} %>
       <%=f.input :rating ,as:
             :select,
             collection: [['1',1],['2',2],['3',3],['4',4],['5',5]],

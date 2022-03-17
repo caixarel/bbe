@@ -29,6 +29,7 @@
   }
   .distance-p a:hover {
     color: #202020a2;
+    text-decoration: none;
   }
 }
 
@@ -140,6 +141,10 @@
   line-height: 36px;
 
   color: #000000;
+
+  a:hover {
+    text-decoration: none;
+  }
   h4 {
     margin-bottom: 0;
   }
@@ -178,22 +183,22 @@ a {
 #myDIV {
 
 margin-left: 16px;
-.p-3 {
-  //padding: 0;
-}
-.btn-page {
+font-family: 'helvetica neue';
+font-weight: 300;
 
+.btn-page {
   border: none;
   outline: none;
   padding: 10px 16px;
-  background-color: #f1f1f1;
+  background: rgba(0, 0, 0, 0.247) ;
+  border-radius: 0px;
   cursor: pointer;
 }
 
 /* Style the active class (and buttons on mouse-over) */
 .active, .btn-page:hover {
-  background-color: #666;
-  color: white;
+  background-color: rgba(0, 0, 0, 0.507);
+  color: rgb(0, 0, 0);
   width: 50px;
   display:flex;
   justify-items: center;

@@ -3,7 +3,9 @@
 }
 
 
-
+.ranking {
+  font-size: 18px;
+}
 
 .bakery-description{
   width: 93%;
@@ -14,7 +16,7 @@
   background: rgba(255, 255, 255, 0.97);
   border: 1px solid rgba(0, 0, 0, 0.19);
   box-sizing: border-box;
-  //border-radius: 15px;
+  border-radius: 5px;
   padding: 30px;
   display: flex;
   flex-direction: column;
@@ -31,13 +33,13 @@
 
 .show_bakery_name h4{
   font-family: Anton;
-font-style: normal;
-font-weight: normal;
-font-size: 32px;
-line-height: 48px;
-letter-spacing: 0.065em;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 32px;
+  line-height: 48px;
+  letter-spacing: 0.065em;
 
-color: #000000;
+  color: #000000;
 }
 
 #text{
@@ -46,17 +48,23 @@ color: #000000;
 
 .hour_icon {
   text-align: center;
-  background: rgba(255, 153, 121, 0.1);
-  border: 1px solid #000000;
+  background: rgba(255, 152, 121, 0.185);
+  border: 1px solid rgba(0, 0, 0, 0.19);
   box-sizing: border-box;
-  border-radius: 15px;
+  border-radius: 8px;
 }
 
 .open-closed {
   text-transform: uppercase;
   padding-bottom: 40px;
-}
 
+}
+.schedule {
+  p {
+  font-weight: 300;
+  color: #636363;
+  }
+}
 
 .picture {
   border-radius: 15px;
@@ -87,7 +95,8 @@ color: #000000;
     text-transform: uppercase;
     font-size: 15px;
     margin: 5px 10px;
-    color: #000000;
+    color: #4C4C4C;
+    background: transparent;
   }
 }
 
@@ -156,19 +165,19 @@ color: #000000;
 .btn-go{
   margin: 0px;
 }
+
 .display-reviews{
-  background: #fff5f2;
-}
-.display-reviews{
+  background: white;
   margin-left: 30px;
   margin-right: 30px;
- // border-radius: 15px;
+  border-radius: 5px;
   padding: 20px;
   margin-top:20px;
 }
 .rating-review{
   margin-left: 50px;
   color: rgba(255, 130, 47, 0.925);
+  padding-right: 15px;
 }
 .title-review{
   margin-left: 20px;
@@ -194,7 +203,7 @@ color: #000000;
 }
 .average-rating{
   background-color: white;
-  //border-radius: 15px;
+  border-radius: 5px;
   padding: 20px;
   height: 200px;
   margin: 30px 10px 0px 30px;
@@ -210,11 +219,30 @@ color: #000000;
   .locals {
     padding-top: 15px;
     padding-bottom: 15px;
+    display:flex;
   }
 
   .visitors {
     padding-top: 10px;
+    display:flex;
   }
+
+  .person-icon {
+    height: 23px;
+    padding-left: 5px;
+    padding-top: 3px;
+    display:flex;
+  }
+
+  .total-visitors{
+  display:flex;
+  justify-content: space-between;
+
+  .total {
+    padding-top: 10px;
+    display: flex;
+  }
+}
 
   .average{
     border: #000000;
@@ -244,8 +272,8 @@ color: #000000;
 .picture-bakery {
   margin: 10px 10px 0px 30px;
   img {
+    border-radius: 5px;
     height: 500px !important;
-    // border-radius: 15px;
     width: 500px !important;
     object-fit: contain;
   }
@@ -387,39 +415,45 @@ color: #000000;
   width:0px;
 }
 .carousel .carousel-item {
-    width: 100%; /*slider width*/
-    max-height: 400px; /*slider height*/
-    //transition: transform 10s ease-in-out!important;
+  width: 100%; /*slider width*/
+  max-height: 400px; /*slider height*/
+  //transition: transform 10s ease-in-out!important;
 
-    .carousel-item-left {
-      margin-right: 0px !important;
-    }
+  .carousel-item-left {
+    margin-right: 0px !important;
+  }
 }
 .carousel .carousel-item img {
-    width: 100%; /*img width*/
-    object-fit: contain;
-    overflow: hidden;
-    object-position: center;
+  width: 100%; /*img width*/
+  object-fit: contain;
+  overflow: hidden;
+  object-position: center;
 }
 @media (max-width: 767px) {
-    .block {
-        margin-left: -20px;
-        margin-right: -20px;
-    }
+  .block {
+    margin-left: -20px;
+    margin-right: -20px;
+  }
 }
 
 
 #carouselExampleControls {
   margin: 0 auto;
   max-width: 500px;
+  border-radius: 5px;
+  .carousel-item {
+    border-radius: 5px;
+    img {
+      border-radius: 5px;
+    }
+  }
 }
 
 
 .div-btn-go {
-
-$bg: #F3F8FA;
-$white: #fff;
-$black: #ff975b;
+$bg: #000000;
+$white: rgb(0, 0, 0);
+$black: #00000000;
 @mixin transition($property: all, $duration: 0.45s, $ease: cubic-bezier(0.65,0,.076,1)) {
   transition: $property $duration $ease;
 }
@@ -430,17 +464,17 @@ $black: #ff975b;
   }
 }
 
-
-
 .learn-more {
   position: relative;
   display: inline-block;
   cursor: pointer;
   outline: none;
-  border: 0;
+  border: 1px solid #686868;
+  border-radius: 1.625rem;
   vertical-align: middle;
   text-decoration: none;
   background: transparent;
+  box-shadow: #8C8C8C;
   padding: 0;
   font-size: 18px;
   font-family: "Anton";
@@ -470,7 +504,7 @@ $black: #ff975b;
           left: 0.625rem;
           width: 1.125rem;
           height: 0.125rem;
-          background: none;
+          background: $white;
           &::before {
             position: absolute;
             content: "";
@@ -478,8 +512,8 @@ $black: #ff975b;
             right: 0.0625rem;
             width: 0.625rem;
             height: 0.625rem;
-            border-top: 0.125rem solid #fff;
-            border-right: 0.125rem solid #fff;
+            border-top: 0.125rem solid rgb(0, 0, 0);
+            border-right: 0.125rem solid rgb(0, 0, 0);
             transform: rotate(45deg);
           }
         }
@@ -495,7 +529,7 @@ $black: #ff975b;
       padding: 0.75rem 0;
       margin: 0 0 0 1.85rem;
       margin-left: 45px;
-      color: $black;
+      color: $white;
       font-weight: 700;
       line-height: 1.6;
       text-align: center;
@@ -534,13 +568,92 @@ $black: #ff975b;
     //justify-self: center;
     display:flex;
     align-items: flex-end;
-    button {
-      .lean-more {
-        width: 13rem !important;
+      button {
+        .lean-more {
+          width: 13rem !important;
+        }
       }
+  }
+}
+}
+
+
+
+
+
+
+.new-review {
+    border: none;
+    background: transparent;
+    font-family: 'helvetica Neue';
+    font-weight: 400;
+    font-size: 15px;
+    color: #000000da;
+
+    &:hover {
+      text-decoration: none;
+      background: transparent;
+    }
+    #new_review {
+
+      label {
+        .text .optional {
+        font-family: "helvetica neue" !important;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 300;
+        //line-height: 48px;
+        //letter-spacing: 0.055em;
+        text-align: left;
+        margin-left: 0% !important;
+        display: block;
+        }
+      }
+
+      .content {
+        font-family:"helvetica neue" ;
+          margin-left: 0% !important;
+      }
+      input {
+  font-family: Helvetica Neue;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 24px;
+
+  color: #000000;
+  display:flex;
+
+  flex-wrap: wrap;
+
+}
+label {
+  font-family: "Anton", "sans-serif";
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 48px;
+  letter-spacing: 0.055em;
+  text-align: left;
+
+  margin-left: 5%;
+  display: block;
+
+  }
+
+input[type="submit" i]{
+  border: none !important;
+  background-color: transparent !important;
     }
   }
 }
-.ranking {
-  font-size: 18px;
-}}
+
+input[type="file"] {
+  // position: absolute;
+  z-index: -1;
+  top: 10px;
+  left: 8px;
+
+  font-size: 17px;
+  color: #000000;
+}
