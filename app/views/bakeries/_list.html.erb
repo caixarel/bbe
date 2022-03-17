@@ -21,12 +21,9 @@
             </div>
 
             <div id="location" class='pt-2'>
-              <ul style="list-style: none;">
-              <% visitors = Review.where(bakery: bakery).where(visitor: true) %>
-              <% locals = Review.where(bakery: bakery).where(visitor: false) %>
-                <li><p class='visitors'>Visitors: <%= visitors.empty? ? 0 : visitors.length%>/<%= bakery.reviews.count unless bakery.reviews.empty? %></p></li>
-                <li><p class='visitors'>Locals: <%= locals.empty? ? 0 : locals.length%>/<%= bakery.reviews.count unless bakery.reviews.empty?%></p></li>
-              </ul>
+              <div>
+                <p class= 'ranking'><%= "##{bakery.rank.to_i + 1} IN BELGIUM" %></p>
+              </div>
             </div>
 
           </div>
@@ -40,12 +37,9 @@
                   <p style="color:red">Closed </p>
                 <%end %>
               </div>
-              <div>
-                <p class= 'ranking'><%= "##{bakery.rank.to_i + 1} IN BELGIUM" %></p>
-              </div>
               <div class="distance-p">
                 <%= link_to bakery_path(bakery) do %>
-                  5 min walk
+                 Learn more
                   <i class="fas fa-arrow-right"></i>
                 <% end %>
               </div>

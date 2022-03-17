@@ -52,8 +52,8 @@
         <p class='total'>Total:   <%= @bakery.reviews.count unless @bakery.reviews.empty? %><%= image_tag "person-solid.svg", class:"person-icon" %> </p>
       </div>
       <p class='locals'>Locals: <%= @locals.empty? ? 0 : @locals.length%> <%= image_tag "person-solid.svg", class:"person-icon" %></p>
-      <% if @average_rating %>
-        <p class='average'>Average rating:   <%@average_rating.to_i.times do %>
+      <% if @bakery.average_rating %>
+        <p class='average'>Average rating:   <%@bakery.average_rating.to_i.times do %>
           <i class="fas fa-star"></i>
         <%end %></p>
       <%end %>
