@@ -66,9 +66,8 @@ class BakeriesController < ApplicationController
         info_window: render_to_string(partial: "info_window", locals: { bakery: @bakery })
       }
     ]
-        @products = Product.where(bakery: @bakery).where(speciality: false)
-        @speciality = Product.where(bakery: @bakery).where(speciality: true)
-
+    @products = Product.where(bakery: @bakery).where(speciality: false)
+    @speciality = Product.where(bakery: @bakery).where(speciality: true)
   end
 
   def new
