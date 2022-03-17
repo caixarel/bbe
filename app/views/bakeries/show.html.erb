@@ -49,7 +49,7 @@
     <div class='average-rating'>
       <div class='d-flex total-visitors'>
         <p class='visitors'>Visitors:   <%= @visitors.empty? ? 0 : @visitors.length %><%= image_tag "person-solid.svg", class:"person-icon" %></p>
-        <p class='total'>Total:   <%= @bakery.reviews.count unless @bakery.reviews.empty? %><%= image_tag "person-solid.svg", class:"person-icon" %> </p>
+        <p class='total'>Total reviews:   <%= @bakery.reviews.count unless @bakery.reviews.empty? %><%= image_tag "person-solid.svg", class:"person-icon" %> </p>
       </div>
       <p class='locals'>Locals: <%= @locals.empty? ? 0 : @locals.length%> <%= image_tag "person-solid.svg", class:"person-icon" %></p>
       <% if @bakery.average_rating %>
@@ -77,8 +77,7 @@
         </div>
 
         <div class="ranking-div">
-         <!-- <p class= 'ranking'><%= "##{@bakery.rank.to_i + 1} IN BELGIUM" %></p> -->
-           <p class= 'ranking'>#1 IN BELGIUM</p>
+        <p class= 'ranking'><%= "##{@bakery.rank.to_i + 1} IN BELGIUM" %></p>
         </div>
 
           <div class='schedule p-2 d-flex justify-content-between'>
@@ -184,15 +183,18 @@
     <button class='new-review show-tag'data-action="click->create-reviews#displayForm"><i class="fas fa-pen fa-xs ml-2" ></i>
       create a review</button>
       <%= simple_form_for [@bakery,@review], method: :post, html: { class:'d-none',style:"width: 30%; margin: auto;", data: { create_reviews_target: 'form', action: 'submit->create-reviews#create'  } } do |f| %>
+      <%=f.input :title %>
        <%= f.input :content,  html: { class:'content', style:"width: 30%; margin: 0px;"} %>
       <%=f.input :rating ,as:
             :select,
             collection: [['1',1],['2',2],['3',3],['4',4],['5',5]],
-            disabled: [] %>
-      <%=f.input :title %>
-      <%= f.input :photo, as: :file %>
+            disabled: [] ,
+            label: 'Add a rating to your review' %>
+      <%= f.input :photo, as: :file ,
+                  label: 'Add a picture to your review'%>
 
       <%=f.input :visitor,
+            label: 'Local/visitor',
             as: :select,
             collection: [['local',false],['visitor',true]],
             disabled: [] %>
@@ -206,8 +208,8 @@
                 <%= render '/reviews/reviews', review: review %>
                 <%end %>
               <%elsif @bakery.reviews.count >0%>
-                <%@bakery.reviews.reverse.each do |review| %>
-                  <%= render '/reviews/reviews', review: review %>
+                <%@bakery.reviews.reverse.each_with_index do |review,index| %>
+                  <%= render '/reviews/reviews', review: review, index:index %>
                 <%end %>
               <%end %>
       </div>
