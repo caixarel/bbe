@@ -204,8 +204,8 @@
   </div>
       <div data-create-reviews-target='reviews'>
       <% if @bakery.reviews.count > 4 %>
-              <%@bakery.reviews.reverse[0..4].each do |review| %>
-                <%= render '/reviews/reviews', review: review %>
+              <%@bakery.reviews.reverse[0..4].each_with_index do |review,index| %>
+                <%= render '/reviews/reviews', review: review, index:index %>
                 <%end %>
               <%elsif @bakery.reviews.count >0%>
                 <%@bakery.reviews.reverse.each_with_index do |review,index| %>
