@@ -68,27 +68,26 @@
           <div class="show_bakery_name">
             <h4><%=@bakery.name.upcase%></h4>
           </div>
+          <div class="ranking-div">
+            <p class= 'ranking'><%= "##{@bakery.rank.to_i + 1} IN BELGIUM" %></p>
+          </div>
           <div class=" show show_address">
             <%= @bakery.address.capitalize %>, <%= @bakery.post_code %>
           </div>
           <div class="show phone">
             <%= @bakery.phone_number %>
           </div>
+
         </div>
 
-        <div class="ranking-div">
-        <p class= 'ranking'><%= "##{@bakery.rank.to_i + 1} IN BELGIUM" %></p>
-        </div>
+
 
           <div class='schedule p-2 d-flex justify-content-between'>
             <div>
-              <div>
-                <% if (Time.now.hour > @bakery.opening_hour.hour && Time.now.hour < @bakery.closing_hour.hour)%>
-                  <p style="color:green ; text-align:center">Open now</p>
-                <%else %>
-                  <p class="open-closed" style="color:red">Closed now</p>
-                <%end %>
+              <div class='favourites-show' data-controller="refresh-list">
+                <%= render '/bakeries/favourites', bakery: @bakery, class: "favourites" %>
               </div>
+
               <div>
                 <p class='m-0'>Opening hour</p>
                 <p class='hour_icon'><%= @bakery.opening_hour.strftime("%H:%M") %></p>
@@ -97,12 +96,18 @@
                 <p class=' mt-2 m-0'>Closing hour</p>
                 <p class='hour_icon'><%= @bakery.closing_hour.strftime("%H:%M") %></p>
               </div>
+              <div>
+                <% if (Time.now.hour > @bakery.opening_hour.hour && Time.now.hour < @bakery.closing_hour.hour)%>
+                  <p style="color:green ; text-align:center">Open now</p>
+                <%else %>
+                  <p class="open-closed" style="color:red">Closed now</p>
+                <%end %>
+              </div>
             </div>
           <div></div></div>
 
 
       </div>
-      <br>
       <div id="text" class='d-flex pt-2'>
         <div class='description-tags' data-controller="create-tags">
           <div class='d-flex'  data-create-tags-target='tags'>
