@@ -67,12 +67,6 @@ class BakeriesController < ApplicationController
     ]
     @products = Product.where(bakery: @bakery).where(speciality: false)
     @speciality = Product.where(bakery: @bakery).where(speciality: true)
-      # @bakeries = Bakery.all.select {|bakery| bakery.rank != nil }
-      # @ranked_bakeries = @bakeries.sort_by {|bakery| bakery.rank}.reverse
-      # @position = @ranked_bakeries.index{|x| x.id == @bakery.id}
-      # @bakery.rank = @position
-      # @bakery.save!
-
   end
 
   def new
