@@ -20,6 +20,7 @@ class BakeriesController < ApplicationController
       @bakeries = Bakery.all
       @bakeries_count = @bakeries.length
       @query = ''
+
     end
     unless @bakeries.empty?
       @markers = @bakeries.geocoded.map do |bakery|
