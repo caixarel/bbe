@@ -1,10 +1,7 @@
 <div class='display-reviews d-flex'>
-    <div class='avatar-show'>
-      <img src="https://i.pravatar.cc/150?img=<%=rand(50)%>"  alt="" style='border-radius:50%'>
-    </div>
     <div class='review-description d-flex'>
       <div class="card-review w-100">
-        <div class='d-flex justify-content-between'>
+        <div class='d-flex'>
           <div class='title-review'><p><%= review.title%></p></div>
           <div class='rating-review'>
             <% review.rating.times do %>
